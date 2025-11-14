@@ -67,7 +67,7 @@ export default function TenantPage() {
   }
 
   const handleSubmit = () => {
-    if (!formData.location || !formData.maxBudget) {
+    if (!formData.location) {
       return
     }
 
@@ -77,7 +77,7 @@ export default function TenantPage() {
     setViewState("scanning")
     
     const steps = [
-      `Searching listings in ${formData.location} under $${formData.maxBudget}`,
+      `Searching listings in ${formData.location}`,
       formData.mustHaves.length > 0
         ? `Filtering for ${formData.mustHaves.join(", ")}`
         : "Filtering candidates",
@@ -126,7 +126,7 @@ export default function TenantPage() {
   }
 
   if (viewState === "form") {
-    const canSubmit = formData.location && formData.maxBudget
+    const canSubmit = formData.location
 
     return (
       <div className="flex min-h-screen flex-col items-center justify-center p-4">
@@ -150,7 +150,7 @@ export default function TenantPage() {
               />
             </div>
 
-            <div className="space-y-2">
+            {/* <div className="space-y-2">
               <Label htmlFor="maxBudget">
                 Maximum Budget <span className="text-destructive">*</span>
               </Label>
@@ -162,7 +162,7 @@ export default function TenantPage() {
                 onChange={(e) => handleInputChange("maxBudget", e.target.value)}
                 required
               />
-            </div>
+            </div> */}
 
             <div className="space-y-2">
               <Label htmlFor="moveInDate">Move-in date (optional)</Label>
@@ -267,7 +267,7 @@ export default function TenantPage() {
 
     const stepConfigs = [
       {
-        text: `Searching listings in ${formData.location} under $${formData.maxBudget}`,
+        text: `Searching listings in ${formData.location}`,
         icon: Search,
       },
       {
