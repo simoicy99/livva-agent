@@ -1,0 +1,272 @@
+[
+  {
+    "id": "r1",
+    "platform": "Redfin",
+    "photo": "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "price": 2561,
+    "location": "611 Sammie Parks, Tenderloin",
+    "matchScore": 98,
+    "whyItFits": "Historic building, character details, great location"
+  },
+  {
+    "id": "z2",
+    "platform": "Zillow",
+    "photo": "https://images.pexels.com/photos/1090638/pexels-photo-1090638.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "price": 4856,
+    "location": "35426 Eladio Haven, Nob Hill",
+    "matchScore": 75,
+    "whyItFits": "Prestigious neighborhood, stunning views, hardwood floors"
+  },
+  {
+    "id": "r3",
+    "platform": "Redfin",
+    "photo": "https://images.pexels.com/photos/276267/pexels-photo-276267.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "price": 2603,
+    "location": "Kiehn, Cartwright and Kunze (2099 Front Street), SoMa",
+    "matchScore": 96,
+    "whyItFits": "Great neighborhood, pet spa, rooftop terrace"
+  },
+  {
+    "id": "r4",
+    "platform": "Redfin",
+    "photo": "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "price": 5266,
+    "location": "5197 W Church Street, Pacific Heights",
+    "matchScore": 72,
+    "whyItFits": "Parking included, modern amenities, walkable neighborhood"
+  },
+  {
+    "id": "z5",
+    "platform": "Zillow",
+    "photo": "https://images.pexels.com/photos/1080696/pexels-photo-1080696.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "price": 4947,
+    "location": "Rutherford, Donnelly and Abshire (3832 Connelly Springs), Pacific Heights",
+    "matchScore": 90,
+    "whyItFits": "Quiet street, private balcony, in-unit washer/dryer"
+  },
+  {
+    "id": "a6",
+    "platform": "Apartments.com",
+    "photo": "https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "price": 4413,
+    "location": "2863 Elva Glen, Mission District",
+    "matchScore": 95,
+    "whyItFits": "Heart of the Mission, great price, close to BART"
+  },
+  {
+    "id": "z7",
+    "platform": "Zillow",
+    "photo": "https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "price": 4026,
+    "location": "Nienow - Haley (674 Keebler Brook), Russian Hill",
+    "matchScore": 96,
+    "whyItFits": "Great neighborhood, pet spa, rooftop terrace"
+  },
+  {
+    "id": "r8",
+    "platform": "Redfin",
+    "photo": "https://images.pexels.com/photos/4352247/pexels-photo-4352247.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "price": 3454,
+    "location": "Lindgren, Schoen and Tremblay (12198 Swaniawski Springs), Marina",
+    "matchScore": 73,
+    "whyItFits": "Great neighborhood, pet spa, rooftop terrace"
+  },
+  {
+    "id": "r9",
+    "platform": "Redfin",
+    "photo": "https://images.pexels.com/photos/1129413/pexels-photo-1129413.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "price": 3469,
+    "location": "154 Blanca Green, Potrero Hill",
+    "matchScore": 85,
+    "whyItFits": "Close to restaurants and nightlife, updated appliances"
+  },
+  {
+    "id": "r10",
+    "platform": "Redfin",
+    "photo": "https://images.pexels.com/photos/1643384/pexels-photo-1643384.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "price": 2654,
+    "location": "343 Alfredo Parkway, Tenderloin",
+    "matchScore": 78,
+    "whyItFits": "Affordable for the area, good transit access, safe neighborhood"
+  },
+  {
+    "id": "z11",
+    "platform": "Zillow",
+    "photo": "https://images.pexels.com/photos/1571453/pexels-photo-1571453.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "price": 4401,
+    "location": "9267 Monserrat Haven, Nob Hill",
+    "matchScore": 85,
+    "whyItFits": "Pet friendly, in-unit laundry, close to public transport"
+  },
+  {
+    "id": "a12",
+    "platform": "Apartments.com",
+    "photo": "https://images.pexels.com/photos/827518/pexels-photo-827518.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "price": 3660,
+    "location": "15605 Lula Dale, Pacific Heights",
+    "matchScore": 97,
+    "whyItFits": "Brand new building, amazing gym, 1 block from work"
+  },
+  {
+    "id": "r13",
+    "platform": "Redfin",
+    "photo": "https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "price": 3225,
+    "location": "826 N Walnut Street, Mission District",
+    "matchScore": 72,
+    "whyItFits": "Affordable for the area, good transit access, safe neighborhood"
+  },
+  {
+    "id": "a14",
+    "platform": "Apartments.com",
+    "photo": "https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "price": 2527,
+    "location": "Tromp - Moen (4788 Quarry Road), North Beach",
+    "matchScore": 72,
+    "whyItFits": "Rooftop deck, bike storage, pet-friendly"
+  },
+  {
+    "id": "z15",
+    "platform": "Zillow",
+    "photo": "https://images.pexels.com/photos/462235/pexels-photo-462235.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "price": 5048,
+    "location": "7627 Eriberto Roads, Nob Hill",
+    "matchScore": 89,
+    "whyItFits": "Modern kitchen, high ceilings, natural light"
+  },
+  {
+    "id": "z16",
+    "platform": "Zillow",
+    "photo": "https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "price": 3978,
+    "location": "39386 N 7th Street, Castro",
+    "matchScore": 75,
+    "whyItFits": "Quiet street, private balcony, in-unit washer/dryer"
+  },
+  {
+    "id": "z17",
+    "platform": "Zillow",
+    "photo": "https://images.pexels.com/photos/667838/pexels-photo-667838.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "price": 5400,
+    "location": "2999 Armstrong Viaduct, SoMa",
+    "matchScore": 97,
+    "whyItFits": "New construction, smart home features, concierge service"
+  },
+  {
+    "id": "z18",
+    "platform": "Zillow",
+    "photo": "https://images.pexels.com/photos/279648/pexels-photo-279648.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "price": 2791,
+    "location": "315 S East Street, Castro",
+    "matchScore": 87,
+    "whyItFits": "Luxury amenities, fitness center, coworking space"
+  },
+  {
+    "id": "z19",
+    "platform": "Zillow",
+    "photo": "https://images.pexels.com/photos/161758/governor-s-mansion-montgomery-alabama-grand-staircase-161758.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "price": 5102,
+    "location": "767 Greenholt Spur, Cathedral Hill",
+    "matchScore": 96,
+    "whyItFits": "Prestigious neighborhood, stunning views, hardwood floors"
+  },
+  {
+    "id": "r20",
+    "platform": "Redfin",
+    "photo": "https://images.pexels.com/photos/1374125/pexels-photo-1374125.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "price": 4273,
+    "location": "Littel Inc (7783 Botsford Neck), Marina",
+    "matchScore": 70,
+    "whyItFits": "Within budget, 10 minutes from preferred neighborhood, allows cats"
+  },
+  {
+    "id": "a21",
+    "platform": "Apartments.com",
+    "photo": "https://images.pexels.com/photos/245208/pexels-photo-245208.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "price": 4679,
+    "location": "57260 Justus Mill, Castro",
+    "matchScore": 98,
+    "whyItFits": "Prestigious neighborhood, stunning views, hardwood floors"
+  },
+  {
+    "id": "z22",
+    "platform": "Zillow",
+    "photo": "https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "price": 4644,
+    "location": "Friesen - Lowe (40098 Lawrence Street), Marina",
+    "matchScore": 89,
+    "whyItFits": "Floor to ceiling windows, incredible views, 24/7 concierge"
+  },
+  {
+    "id": "a23",
+    "platform": "Apartments.com",
+    "photo": "https://images.pexels.com/photos/1571459/pexels-photo-1571459.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "price": 4611,
+    "location": "Bauch - Steuber (6423 2nd Street), Marina",
+    "matchScore": 83,
+    "whyItFits": "Pet friendly, in-unit laundry, close to public transport"
+  },
+  {
+    "id": "r24",
+    "platform": "Redfin",
+    "photo": "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "price": 4476,
+    "location": "43660 Murazik Loop, Cathedral Hill",
+    "matchScore": 74,
+    "whyItFits": "Pet friendly, in-unit laundry, close to public transport"
+  },
+  {
+    "id": "r25",
+    "platform": "Redfin",
+    "photo": "https://images.pexels.com/photos/3356416/pexels-photo-3356416.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "price": 2802,
+    "location": "Ullrich, Dietrich and Bernhard (9536 Lockman Views), SoMa",
+    "matchScore": 70,
+    "whyItFits": "Pet friendly, in-unit laundry, close to public transport"
+  },
+  {
+    "id": "a26",
+    "platform": "Apartments.com",
+    "photo": "https://images.pexels.com/photos/447592/pexels-photo-447592.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "price": 4705,
+    "location": "80821 Princes Street, Mission District",
+    "matchScore": 93,
+    "whyItFits": "Floor to ceiling windows, incredible views, 24/7 concierge"
+  },
+  {
+    "id": "z27",
+    "platform": "Zillow",
+    "photo": "https://images.pexels.com/photos/1648768/pexels-photo-1648768.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "price": 5076,
+    "location": "943 Harrison Street, Marina",
+    "matchScore": 82,
+    "whyItFits": "Quiet street, private balcony, in-unit washer/dryer"
+  },
+  {
+    "id": "a28",
+    "platform": "Apartments.com",
+    "photo": "https://images.pexels.com/photos/1648771/pexels-photo-1648771.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "price": 5352,
+    "location": "Bosco, Hammes and Wiegand (583 King Street), Mission District",
+    "matchScore": 86,
+    "whyItFits": "Rooftop deck, bike storage, pet-friendly"
+  },
+  {
+    "id": "r29",
+    "platform": "Redfin",
+    "photo": "https://images.pexels.com/photos/1457844/pexels-photo-1457844.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "price": 5164,
+    "location": "77770 Beer Mission, Pacific Heights",
+    "matchScore": 80,
+    "whyItFits": "Brand new building, amazing gym, 1 block from work"
+  },
+  {
+    "id": "z30",
+    "platform": "Zillow",
+    "photo": "https://images.pexels.com/photos/259580/pexels-photo-259580.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "price": 3612,
+    "location": "Yost - Hirthe (1070 S Jefferson Street), Marina",
+    "matchScore": 93,
+    "whyItFits": "Luxury amenities, fitness center, coworking space"
+  }
+]
