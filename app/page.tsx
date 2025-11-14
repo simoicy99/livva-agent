@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-
+import { Lock } from "lucide-react"
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
@@ -14,16 +14,16 @@ export default function Home() {
               Welcome to Livva
             </h1>
             <p className="text-lg text-muted-foreground">
-              Your smart rental assistant
+              AI Agent for finding and managing rentals
             </p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
             <Card className="flex flex-col">
               <CardHeader>
-                <CardTitle>I&apos;m a Tenant</CardTitle>
+                <CardTitle>I&apos;m looking for a rental</CardTitle>
                 <CardDescription>
-                  Find your perfect rental with AI-powered search
+                  Find your house with AI Agent
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex-1">
@@ -37,12 +37,15 @@ export default function Home() {
               <CardHeader>
                 <CardTitle>I&apos;m a Landlord</CardTitle>
                 <CardDescription>
-                  List and manage your properties
+                  List and manage with AI Agent
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex-1">
-                <Button asChild className="w-full" size="lg" variant="outline">
-                  <Link href="/landlord">Coming Soon</Link>
+                <Button asChild className="w-full" size="lg" variant="outline" disabled>
+                  <Link href="/landlord" tabIndex={-1} aria-disabled="true" className="pointer-events-none flex items-center justify-center gap-2">
+                    <Lock className="size-5" />
+                    Coming Soon
+                  </Link>
                 </Button>
               </CardContent>
             </Card>

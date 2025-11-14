@@ -40,7 +40,7 @@ export default function LandlordPage() {
               {submitted ? (
                 <div className="space-y-4 text-center">
                   <p className="text-sm text-muted-foreground">
-                    Thanks for joining! We'll notify you when we launch.
+                    Thanks for joining! We&apos;ll notify you when we launch.
                   </p>
                   <Button asChild variant="outline" className="w-full">
                     <Link href="/">Back to Home</Link>
