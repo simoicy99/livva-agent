@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "generate:properties": "tsx scripts/generate-properties.ts",
-    "db:seed": "tsx prisma/seed.ts"
+    "db:seed": "tsx prisma/seed.ts",
+    "postinstall": "prisma generate"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
