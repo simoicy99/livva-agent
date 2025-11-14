@@ -1,0 +1,1802 @@
+[
+  {
+    "id": "r1",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/442",
+    "price": 2561,
+    "location": "611 Sammie Parks, Tenderloin",
+    "matchScore": 98,
+    "whyItFits": "Historic building, character details, great location"
+  },
+  {
+    "id": "z2",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/409",
+    "price": 3099,
+    "location": "54261 Frederic Lakes, Nob Hill",
+    "matchScore": 84,
+    "whyItFits": "Modern kitchen, high ceilings, natural light"
+  },
+  {
+    "id": "r3",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/504",
+    "price": 3276,
+    "location": "Barton and Sons (99830 Main Street W), Nob Hill",
+    "matchScore": 89,
+    "whyItFits": "Floor to ceiling windows, incredible views, 24/7 concierge"
+  },
+  {
+    "id": "r4",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/456",
+    "price": 3314,
+    "location": "Hane - Howell (798 Walker Cliff), Nob Hill",
+    "matchScore": 94,
+    "whyItFits": "Good price for SoMa, pool and fitness center, allows large dogs"
+  },
+  {
+    "id": "r5",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/472",
+    "price": 4687,
+    "location": "197 Abner Square, Nob Hill",
+    "matchScore": 92,
+    "whyItFits": "Pet friendly, in-unit laundry, close to public transport"
+  },
+  {
+    "id": "z6",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/552",
+    "price": 3917,
+    "location": "3033 Prospect Road, Potrero Hill",
+    "matchScore": 73,
+    "whyItFits": "Close to restaurants and nightlife, updated appliances"
+  },
+  {
+    "id": "r7",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/551",
+    "price": 5223,
+    "location": "5401 Louie Gardens, Marina",
+    "matchScore": 77,
+    "whyItFits": "Classic building, spacious layout, close to Japantown"
+  },
+  {
+    "id": "z8",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/463",
+    "price": 4118,
+    "location": "29868 County Line Road, Mission District",
+    "matchScore": 93,
+    "whyItFits": "Affordable for the area, good transit access, safe neighborhood"
+  },
+  {
+    "id": "z9",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/450",
+    "price": 3591,
+    "location": "Hand, Leannon and Prosacco (8805 Fadel Course), Hayes Valley",
+    "matchScore": 98,
+    "whyItFits": "Luxury amenities, fitness center, coworking space"
+  },
+  {
+    "id": "r10",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/546",
+    "price": 4517,
+    "location": "Yost Group (16502 E Center Street), Pacific Heights",
+    "matchScore": 92,
+    "whyItFits": "Great neighborhood, pet spa, rooftop terrace"
+  },
+  {
+    "id": "r11",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/529",
+    "price": 2549,
+    "location": "5083 Alize Overpass, North Beach",
+    "matchScore": 84,
+    "whyItFits": "Great neighborhood, pet spa, rooftop terrace"
+  },
+  {
+    "id": "z12",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/580",
+    "price": 4089,
+    "location": "Schumm LLC (9131 W 6th Avenue), Russian Hill",
+    "matchScore": 77,
+    "whyItFits": "Pet friendly, in-unit laundry, close to public transport"
+  },
+  {
+    "id": "a13",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/401",
+    "price": 2527,
+    "location": "Tromp - Moen (4788 Quarry Road), North Beach",
+    "matchScore": 72,
+    "whyItFits": "Rooftop deck, bike storage, pet-friendly"
+  },
+  {
+    "id": "z14",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/418",
+    "price": 5048,
+    "location": "627 Eriberto Roads, Financial District",
+    "matchScore": 89,
+    "whyItFits": "Modern kitchen, high ceilings, natural light"
+  },
+  {
+    "id": "r15",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/583",
+    "price": 3031,
+    "location": "Goyette, Bailey and O'Connell (93867 Mayer Locks), Hayes Valley",
+    "matchScore": 97,
+    "whyItFits": "Luxury amenities, fitness center, coworking space"
+  },
+  {
+    "id": "r16",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/419",
+    "price": 5309,
+    "location": "Halvorson, D'Amore and Lynch (499 First Street), SoMa",
+    "matchScore": 90,
+    "whyItFits": "Modern kitchen, high ceilings, natural light"
+  },
+  {
+    "id": "r17",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/500",
+    "price": 5102,
+    "location": "58767 Greenholt Spur, Tenderloin",
+    "matchScore": 96,
+    "whyItFits": "Prestigious neighborhood, stunning views, hardwood floors"
+  },
+  {
+    "id": "a18",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/565",
+    "price": 4273,
+    "location": "Littel Inc (883 Botsford Neck), North Beach",
+    "matchScore": 70,
+    "whyItFits": "Within budget, 10 minutes from preferred neighborhood, allows cats"
+  },
+  {
+    "id": "r19",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/464",
+    "price": 4679,
+    "location": "7260 Justus Mill, Mission District",
+    "matchScore": 98,
+    "whyItFits": "Prestigious neighborhood, stunning views, hardwood floors"
+  },
+  {
+    "id": "a20",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/591",
+    "price": 4644,
+    "location": "Friesen - Lowe (1098 Lawrence Street), Pacific Heights",
+    "matchScore": 89,
+    "whyItFits": "Floor to ceiling windows, incredible views, 24/7 concierge"
+  },
+  {
+    "id": "a21",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/487",
+    "price": 3975,
+    "location": "Prosacco, Krajcik and Boyle (4237 Betty Bypass), Financial District",
+    "matchScore": 83,
+    "whyItFits": "Parking included, modern amenities, walkable neighborhood"
+  },
+  {
+    "id": "r22",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/478",
+    "price": 4257,
+    "location": "Nitzsche - Balistreri (1365 Riverside Avenue), North Beach",
+    "matchScore": 97,
+    "whyItFits": "Modern kitchen, high ceilings, natural light"
+  },
+  {
+    "id": "r23",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/563",
+    "price": 3457,
+    "location": "Paucek - Bernier (9399 Ansel Club), East Cut",
+    "matchScore": 94,
+    "whyItFits": "Within budget, 10 minutes from preferred neighborhood, allows cats"
+  },
+  {
+    "id": "z24",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/587",
+    "price": 3616,
+    "location": "Schoen, Zboncak and Jerde (687 Elm Road), Mission District",
+    "matchScore": 92,
+    "whyItFits": "Good price for SoMa, pool and fitness center, allows large dogs"
+  },
+  {
+    "id": "a25",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/418",
+    "price": 3667,
+    "location": "719 Shanahan Gateway, East Cut",
+    "matchScore": 70,
+    "whyItFits": "Affordable for the area, good transit access, safe neighborhood"
+  },
+  {
+    "id": "z26",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/499",
+    "price": 4875,
+    "location": "664 Erna Points, Tenderloin",
+    "matchScore": 92,
+    "whyItFits": "Pet friendly, in-unit laundry, close to public transport"
+  },
+  {
+    "id": "z27",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/417",
+    "price": 4966,
+    "location": "Prohaska - Bins (8311 Pinfold Lane), Financial District",
+    "matchScore": 90,
+    "whyItFits": "Pet friendly, in-unit laundry, close to public transport"
+  },
+  {
+    "id": "a28",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/499",
+    "price": 3773,
+    "location": "8997 Boehm Shoals, Castro",
+    "matchScore": 96,
+    "whyItFits": "Brand new building, amazing gym, 1 block from work"
+  },
+  {
+    "id": "z29",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/506",
+    "price": 5410,
+    "location": "Fadel, Windler and Anderson (21675 Howard Street), Cathedral Hill",
+    "matchScore": 71,
+    "whyItFits": "Affordable for the area, good transit access, safe neighborhood"
+  },
+  {
+    "id": "a30",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/578",
+    "price": 2636,
+    "location": "9566 Murazik Orchard, Mission District",
+    "matchScore": 78,
+    "whyItFits": "Luxury amenities, fitness center, coworking space"
+  },
+  {
+    "id": "r31",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/537",
+    "price": 4108,
+    "location": "24350 Woodland Road, North Beach",
+    "matchScore": 78,
+    "whyItFits": "Historic building, character details, great location"
+  },
+  {
+    "id": "z32",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/476",
+    "price": 5462,
+    "location": "Hodkiewicz - Schroeder (976 Watsica Throughway), Mission Bay",
+    "matchScore": 74,
+    "whyItFits": "Modern kitchen, high ceilings, natural light"
+  },
+  {
+    "id": "a33",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/589",
+    "price": 5490,
+    "location": "542 Samanta Spurs, Potrero Hill",
+    "matchScore": 86,
+    "whyItFits": "Quiet street, private balcony, in-unit washer/dryer"
+  },
+  {
+    "id": "a34",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/510",
+    "price": 4817,
+    "location": "Osinski - Lebsack (2962 Pine Street), Hayes Valley",
+    "matchScore": 85,
+    "whyItFits": "New construction, smart home features, concierge service"
+  },
+  {
+    "id": "r35",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/469",
+    "price": 3677,
+    "location": "Heller - McLaughlin (2076 E 10th Street), Mission Bay",
+    "matchScore": 82,
+    "whyItFits": "Affordable for the area, good transit access, safe neighborhood"
+  },
+  {
+    "id": "r36",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/415",
+    "price": 3486,
+    "location": "Wuckert Inc (6891 Mount Street), Marina",
+    "matchScore": 88,
+    "whyItFits": "Great neighborhood, pet spa, rooftop terrace"
+  },
+  {
+    "id": "z37",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/492",
+    "price": 3031,
+    "location": "Cummings - Gottlieb (26138 Orn Curve), Mission District",
+    "matchScore": 72,
+    "whyItFits": "Brand new building, amazing gym, 1 block from work"
+  },
+  {
+    "id": "z38",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/497",
+    "price": 3053,
+    "location": "Schoen - Rogahn (7076 Scot Valleys), Castro",
+    "matchScore": 76,
+    "whyItFits": "Good price for SoMa, pool and fitness center, allows large dogs"
+  },
+  {
+    "id": "r39",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/448",
+    "price": 2821,
+    "location": "7027 N Cedar Street, Castro",
+    "matchScore": 82,
+    "whyItFits": "Prestigious neighborhood, stunning views, hardwood floors"
+  },
+  {
+    "id": "z40",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/549",
+    "price": 2760,
+    "location": "32318 Parisian Shores, Castro",
+    "matchScore": 85,
+    "whyItFits": "Modern kitchen, high ceilings, natural light"
+  },
+  {
+    "id": "r41",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/416",
+    "price": 3355,
+    "location": "Crooks - Dibbert (46539 Ferry Club), Mission District",
+    "matchScore": 75,
+    "whyItFits": "Affordable for the area, good transit access, safe neighborhood"
+  },
+  {
+    "id": "r42",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/554",
+    "price": 4170,
+    "location": "Ortiz - Ward (239 The Meadows), East Cut",
+    "matchScore": 86,
+    "whyItFits": "Floor to ceiling windows, incredible views, 24/7 concierge"
+  },
+  {
+    "id": "z43",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/427",
+    "price": 4098,
+    "location": "5216 Kristian Crest, Pacific Heights",
+    "matchScore": 71,
+    "whyItFits": "Good price for SoMa, pool and fitness center, allows large dogs"
+  },
+  {
+    "id": "z44",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/546",
+    "price": 4992,
+    "location": "82675 Jenkins Groves, Tenderloin",
+    "matchScore": 97,
+    "whyItFits": "Brand new building, amazing gym, 1 block from work"
+  },
+  {
+    "id": "a45",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/576",
+    "price": 4496,
+    "location": "75817 Cary Crossroad, Nob Hill",
+    "matchScore": 85,
+    "whyItFits": "Good price for SoMa, pool and fitness center, allows large dogs"
+  },
+  {
+    "id": "r46",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/467",
+    "price": 2850,
+    "location": "Ullrich LLC (4437 Feeney Underpass), Potrero Hill",
+    "matchScore": 97,
+    "whyItFits": "Rooftop deck, bike storage, pet-friendly"
+  },
+  {
+    "id": "z47",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/570",
+    "price": 3526,
+    "location": "Ruecker and Sons (5871 Delmer Roads), Marina",
+    "matchScore": 93,
+    "whyItFits": "Pet friendly, in-unit laundry, close to public transport"
+  },
+  {
+    "id": "z48",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/436",
+    "price": 4128,
+    "location": "227 Quarry Road, Castro",
+    "matchScore": 77,
+    "whyItFits": "Good price for SoMa, pool and fitness center, allows large dogs"
+  },
+  {
+    "id": "a49",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/585",
+    "price": 5297,
+    "location": "5915 Moore Bridge, Financial District",
+    "matchScore": 86,
+    "whyItFits": "Close to restaurants and nightlife, updated appliances"
+  },
+  {
+    "id": "a50",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/480",
+    "price": 5110,
+    "location": "Smitham, Casper and Waelchi (6479 Maple Close), Nob Hill",
+    "matchScore": 85,
+    "whyItFits": "Modern kitchen, high ceilings, natural light"
+  },
+  {
+    "id": "z51",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/484",
+    "price": 2922,
+    "location": "Klein, Fahey and Kling (133 Waelchi Grove), Castro",
+    "matchScore": 75,
+    "whyItFits": "Heart of the Mission, great price, close to BART"
+  },
+  {
+    "id": "a52",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/519",
+    "price": 2756,
+    "location": "6061 Church Avenue, Castro",
+    "matchScore": 98,
+    "whyItFits": "Prestigious neighborhood, stunning views, hardwood floors"
+  },
+  {
+    "id": "z53",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/512",
+    "price": 4073,
+    "location": "92104 Bergstrom Shoals, Marina",
+    "matchScore": 82,
+    "whyItFits": "Classic building, spacious layout, close to Japantown"
+  },
+  {
+    "id": "z54",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/420",
+    "price": 3193,
+    "location": "Oberbrunner, Balistreri and Ernser (932 Jast Brook), Nob Hill",
+    "matchScore": 89,
+    "whyItFits": "Within budget, 10 minutes from preferred neighborhood, allows cats"
+  },
+  {
+    "id": "a55",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/405",
+    "price": 2539,
+    "location": "Doyle, Greenholt and Tremblay (3027 The Ridings), Nob Hill",
+    "matchScore": 72,
+    "whyItFits": "Parking included, modern amenities, walkable neighborhood"
+  },
+  {
+    "id": "z56",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/459",
+    "price": 3728,
+    "location": "9832 McLaughlin Fords, Financial District",
+    "matchScore": 86,
+    "whyItFits": "Classic building, spacious layout, close to Japantown"
+  },
+  {
+    "id": "a57",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/597",
+    "price": 3273,
+    "location": "84874 Domenick Mill, Marina",
+    "matchScore": 74,
+    "whyItFits": "New construction, smart home features, concierge service"
+  },
+  {
+    "id": "r58",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/533",
+    "price": 5122,
+    "location": "Collins - Tromp (19152 O'Keefe Station), Nob Hill",
+    "matchScore": 87,
+    "whyItFits": "Modern kitchen, high ceilings, natural light"
+  },
+  {
+    "id": "z59",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/471",
+    "price": 3236,
+    "location": "4501 Birch Road, Mission Bay",
+    "matchScore": 81,
+    "whyItFits": "Floor to ceiling windows, incredible views, 24/7 concierge"
+  },
+  {
+    "id": "a60",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/467",
+    "price": 2654,
+    "location": "5697 Alexandre Ford, Pacific Heights",
+    "matchScore": 84,
+    "whyItFits": "Modern kitchen, high ceilings, natural light"
+  },
+  {
+    "id": "a61",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/418",
+    "price": 3316,
+    "location": "74642 The Croft, Mission District",
+    "matchScore": 87,
+    "whyItFits": "Good price for SoMa, pool and fitness center, allows large dogs"
+  },
+  {
+    "id": "a62",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/450",
+    "price": 4477,
+    "location": "515 Salisbury Road, Nob Hill",
+    "matchScore": 90,
+    "whyItFits": "New construction, smart home features, concierge service"
+  },
+  {
+    "id": "r63",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/459",
+    "price": 5247,
+    "location": "907 Commercial Street, Hayes Valley",
+    "matchScore": 70,
+    "whyItFits": "Close to restaurants and nightlife, updated appliances"
+  },
+  {
+    "id": "a64",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/539",
+    "price": 3190,
+    "location": "588 Rhoda Burgs, Tenderloin",
+    "matchScore": 73,
+    "whyItFits": "Pet friendly, in-unit laundry, close to public transport"
+  },
+  {
+    "id": "r65",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/560",
+    "price": 5124,
+    "location": "Strosin - Bahringer (35736 Pine Grove), Russian Hill",
+    "matchScore": 85,
+    "whyItFits": "Affordable for the area, good transit access, safe neighborhood"
+  },
+  {
+    "id": "a66",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/447",
+    "price": 3753,
+    "location": "446 Woodland Close, Castro",
+    "matchScore": 82,
+    "whyItFits": "Quiet street, private balcony, in-unit washer/dryer"
+  },
+  {
+    "id": "z67",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/523",
+    "price": 5138,
+    "location": "Schaden, Borer and Johnson (32009 Hoppe Port), Castro",
+    "matchScore": 97,
+    "whyItFits": "Heart of the Mission, great price, close to BART"
+  },
+  {
+    "id": "z68",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/577",
+    "price": 3550,
+    "location": "96652 Daisy Divide, Tenderloin",
+    "matchScore": 71,
+    "whyItFits": "Luxury amenities, fitness center, coworking space"
+  },
+  {
+    "id": "a69",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/453",
+    "price": 4240,
+    "location": "47618 Damion Mews, Tenderloin",
+    "matchScore": 72,
+    "whyItFits": "New construction, smart home features, concierge service"
+  },
+  {
+    "id": "z70",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/415",
+    "price": 2743,
+    "location": "Reilly - Kunze (886 Bogisich Islands), Mission Bay",
+    "matchScore": 76,
+    "whyItFits": "Close to restaurants and nightlife, updated appliances"
+  },
+  {
+    "id": "a71",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/542",
+    "price": 4476,
+    "location": "6836 Gleichner Trafficway, Cathedral Hill",
+    "matchScore": 94,
+    "whyItFits": "New construction, smart home features, concierge service"
+  },
+  {
+    "id": "a72",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/502",
+    "price": 2982,
+    "location": "Champlin, Harvey and Roberts (671 W 3rd Street), Russian Hill",
+    "matchScore": 93,
+    "whyItFits": "Historic building, character details, great location"
+  },
+  {
+    "id": "z73",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/527",
+    "price": 4124,
+    "location": "9626 Satterfield Common, Pacific Heights",
+    "matchScore": 97,
+    "whyItFits": "Good price for SoMa, pool and fitness center, allows large dogs"
+  },
+  {
+    "id": "a74",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/575",
+    "price": 3537,
+    "location": "703 Beach Road, Mission District",
+    "matchScore": 88,
+    "whyItFits": "Within budget, 10 minutes from preferred neighborhood, allows cats"
+  },
+  {
+    "id": "a75",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/600",
+    "price": 4550,
+    "location": "270 Enos Lock, Tenderloin",
+    "matchScore": 82,
+    "whyItFits": "Great neighborhood, pet spa, rooftop terrace"
+  },
+  {
+    "id": "r76",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/597",
+    "price": 4416,
+    "location": "Welch Inc (86206 Goodwin Villages), East Cut",
+    "matchScore": 81,
+    "whyItFits": "Great neighborhood, pet spa, rooftop terrace"
+  },
+  {
+    "id": "r77",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/552",
+    "price": 4830,
+    "location": "20638 Wisoky Divide, Mission Bay",
+    "matchScore": 92,
+    "whyItFits": "New construction, smart home features, concierge service"
+  },
+  {
+    "id": "r78",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/491",
+    "price": 3307,
+    "location": "Bergnaum LLC (96741 Marlin Key), Mission District",
+    "matchScore": 93,
+    "whyItFits": "Floor to ceiling windows, incredible views, 24/7 concierge"
+  },
+  {
+    "id": "z79",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/524",
+    "price": 5460,
+    "location": "Braun Group (5626 Stoney Lane), Mission District",
+    "matchScore": 74,
+    "whyItFits": "Heart of the Mission, great price, close to BART"
+  },
+  {
+    "id": "a80",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/433",
+    "price": 4569,
+    "location": "35030 Graciela Courts, Financial District",
+    "matchScore": 93,
+    "whyItFits": "Parking included, modern amenities, walkable neighborhood"
+  },
+  {
+    "id": "z81",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/416",
+    "price": 4905,
+    "location": "190 Quitzon Trace, North Beach",
+    "matchScore": 79,
+    "whyItFits": "Historic building, character details, great location"
+  },
+  {
+    "id": "a82",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/436",
+    "price": 3157,
+    "location": "Cronin - Swaniawski (565 Birch Grove), Financial District",
+    "matchScore": 98,
+    "whyItFits": "Good price for SoMa, pool and fitness center, allows large dogs"
+  },
+  {
+    "id": "a83",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/549",
+    "price": 3888,
+    "location": "Bins, Bartell and Gerhold (5729 Richmond Close), North Beach",
+    "matchScore": 95,
+    "whyItFits": "Quiet street, private balcony, in-unit washer/dryer"
+  },
+  {
+    "id": "r84",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/519",
+    "price": 5203,
+    "location": "9085 Reinger Loaf, Castro",
+    "matchScore": 82,
+    "whyItFits": "Great neighborhood, pet spa, rooftop terrace"
+  },
+  {
+    "id": "a85",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/503",
+    "price": 3241,
+    "location": "Davis, Steuber and Kulas (6717 Commercial Road), Hayes Valley",
+    "matchScore": 95,
+    "whyItFits": "Heart of the Mission, great price, close to BART"
+  },
+  {
+    "id": "r86",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/434",
+    "price": 3861,
+    "location": "49263 Chapel Close, Financial District",
+    "matchScore": 76,
+    "whyItFits": "Pet friendly, in-unit laundry, close to public transport"
+  },
+  {
+    "id": "r87",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/517",
+    "price": 3924,
+    "location": "Rippin - Olson (426 Clay Lane), Castro",
+    "matchScore": 94,
+    "whyItFits": "Historic building, character details, great location"
+  },
+  {
+    "id": "a88",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/591",
+    "price": 5460,
+    "location": "Bauch Group (30590 Izabella View), Hayes Valley",
+    "matchScore": 97,
+    "whyItFits": "Within budget, 10 minutes from preferred neighborhood, allows cats"
+  },
+  {
+    "id": "r89",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/539",
+    "price": 3831,
+    "location": "Wisozk, Botsford and Pacocha (5461 Eloise Ranch), Mission Bay",
+    "matchScore": 95,
+    "whyItFits": "Parking included, modern amenities, walkable neighborhood"
+  },
+  {
+    "id": "a90",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/479",
+    "price": 4530,
+    "location": "568 Bartell Viaduct, Tenderloin",
+    "matchScore": 76,
+    "whyItFits": "Rooftop deck, bike storage, pet-friendly"
+  },
+  {
+    "id": "r91",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/465",
+    "price": 4716,
+    "location": "9094 Sycamore Close, Mission District",
+    "matchScore": 95,
+    "whyItFits": "Classic building, spacious layout, close to Japantown"
+  },
+  {
+    "id": "a92",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/475",
+    "price": 3666,
+    "location": "Hyatt LLC (848 Karlee Avenue), Potrero Hill",
+    "matchScore": 83,
+    "whyItFits": "Great neighborhood, pet spa, rooftop terrace"
+  },
+  {
+    "id": "z93",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/480",
+    "price": 2576,
+    "location": "7643 N College Street, Mission District",
+    "matchScore": 79,
+    "whyItFits": "Good price for SoMa, pool and fitness center, allows large dogs"
+  },
+  {
+    "id": "r94",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/412",
+    "price": 5194,
+    "location": "7879 Cletus Avenue, Financial District",
+    "matchScore": 77,
+    "whyItFits": "Affordable for the area, good transit access, safe neighborhood"
+  },
+  {
+    "id": "a95",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/436",
+    "price": 3318,
+    "location": "52238 Hahn Parkways, Castro",
+    "matchScore": 81,
+    "whyItFits": "Brand new building, amazing gym, 1 block from work"
+  },
+  {
+    "id": "a96",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/591",
+    "price": 4151,
+    "location": "7152 Milton Road, Nob Hill",
+    "matchScore": 71,
+    "whyItFits": "Rooftop deck, bike storage, pet-friendly"
+  },
+  {
+    "id": "r97",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/419",
+    "price": 4968,
+    "location": "Sauer - Goodwin (326 Spencer Underpass), Potrero Hill",
+    "matchScore": 82,
+    "whyItFits": "Close to restaurants and nightlife, updated appliances"
+  },
+  {
+    "id": "r98",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/519",
+    "price": 4140,
+    "location": "2782 Alberta Pines, East Cut",
+    "matchScore": 76,
+    "whyItFits": "Classic building, spacious layout, close to Japantown"
+  },
+  {
+    "id": "r99",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/464",
+    "price": 2757,
+    "location": "Mayert, Goodwin and Block (74476 Central Avenue), Tenderloin",
+    "matchScore": 95,
+    "whyItFits": "Parking included, modern amenities, walkable neighborhood"
+  },
+  {
+    "id": "z100",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/599",
+    "price": 3473,
+    "location": "50825 Richmond Close, Castro",
+    "matchScore": 79,
+    "whyItFits": "Close to restaurants and nightlife, updated appliances"
+  },
+  {
+    "id": "r101",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/490",
+    "price": 3103,
+    "location": "505 College Street, Financial District",
+    "matchScore": 85,
+    "whyItFits": "Pet friendly, in-unit laundry, close to public transport"
+  },
+  {
+    "id": "a102",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/417",
+    "price": 5026,
+    "location": "8923 Zachery Via, Castro",
+    "matchScore": 85,
+    "whyItFits": "Rooftop deck, bike storage, pet-friendly"
+  },
+  {
+    "id": "a103",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/584",
+    "price": 3842,
+    "location": "Lueilwitz, Haag and Hyatt (870 Dexter Harbors), Mission District",
+    "matchScore": 87,
+    "whyItFits": "Prestigious neighborhood, stunning views, hardwood floors"
+  },
+  {
+    "id": "r104",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/461",
+    "price": 5105,
+    "location": "291 Jefferson Street, Tenderloin",
+    "matchScore": 93,
+    "whyItFits": "Historic building, character details, great location"
+  },
+  {
+    "id": "z105",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/501",
+    "price": 4319,
+    "location": "73968 Sage Valleys, East Cut",
+    "matchScore": 92,
+    "whyItFits": "Parking included, modern amenities, walkable neighborhood"
+  },
+  {
+    "id": "r106",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/530",
+    "price": 4423,
+    "location": "Kessler Group (1019 Wintheiser Keys), Nob Hill",
+    "matchScore": 76,
+    "whyItFits": "Rooftop deck, bike storage, pet-friendly"
+  },
+  {
+    "id": "z107",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/502",
+    "price": 2803,
+    "location": "Cartwright - Gutmann (509 Maudie Way), SoMa",
+    "matchScore": 90,
+    "whyItFits": "Pet friendly, in-unit laundry, close to public transport"
+  },
+  {
+    "id": "a108",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/483",
+    "price": 4701,
+    "location": "Jerde and Sons (3654 Sheridan Lake), Potrero Hill",
+    "matchScore": 92,
+    "whyItFits": "Within budget, 10 minutes from preferred neighborhood, allows cats"
+  },
+  {
+    "id": "r109",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/491",
+    "price": 3964,
+    "location": "71520 Werner Springs, SoMa",
+    "matchScore": 73,
+    "whyItFits": "Prestigious neighborhood, stunning views, hardwood floors"
+  },
+  {
+    "id": "a110",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/463",
+    "price": 5177,
+    "location": "2374 Huels Land, Mission District",
+    "matchScore": 97,
+    "whyItFits": "Historic building, character details, great location"
+  },
+  {
+    "id": "a111",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/548",
+    "price": 2700,
+    "location": "80946 Tremblay Pine, East Cut",
+    "matchScore": 85,
+    "whyItFits": "Brand new building, amazing gym, 1 block from work"
+  },
+  {
+    "id": "r112",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/419",
+    "price": 4484,
+    "location": "Heller - Ryan (17000 School Lane), Russian Hill",
+    "matchScore": 75,
+    "whyItFits": "Parking included, modern amenities, walkable neighborhood"
+  },
+  {
+    "id": "r113",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/560",
+    "price": 4091,
+    "location": "Ryan LLC (10927 Homenick Estates), Marina",
+    "matchScore": 71,
+    "whyItFits": "Luxury amenities, fitness center, coworking space"
+  },
+  {
+    "id": "z114",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/424",
+    "price": 4339,
+    "location": "Kemmer Inc (6786 Eugenia Via), Tenderloin",
+    "matchScore": 97,
+    "whyItFits": "Great neighborhood, pet spa, rooftop terrace"
+  },
+  {
+    "id": "z115",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/556",
+    "price": 3882,
+    "location": "3888 E Jefferson Street, Mission Bay",
+    "matchScore": 94,
+    "whyItFits": "Quiet street, private balcony, in-unit washer/dryer"
+  },
+  {
+    "id": "r116",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/459",
+    "price": 4127,
+    "location": "Spencer LLC (9901 Moises Square), Nob Hill",
+    "matchScore": 87,
+    "whyItFits": "Prestigious neighborhood, stunning views, hardwood floors"
+  },
+  {
+    "id": "r117",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/560",
+    "price": 5476,
+    "location": "671 Altenwerth Fields, Russian Hill",
+    "matchScore": 72,
+    "whyItFits": "Classic building, spacious layout, close to Japantown"
+  },
+  {
+    "id": "z118",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/429",
+    "price": 5375,
+    "location": "Barton, Rodriguez and Douglas (613 N Walnut Street), Financial District",
+    "matchScore": 80,
+    "whyItFits": "Floor to ceiling windows, incredible views, 24/7 concierge"
+  },
+  {
+    "id": "z119",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/418",
+    "price": 4359,
+    "location": "Predovic Group (447 Orchard Lane), Mission Bay",
+    "matchScore": 80,
+    "whyItFits": "Historic building, character details, great location"
+  },
+  {
+    "id": "r120",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/558",
+    "price": 3503,
+    "location": "Kuphal, Blick and Beer (1555 Padberg Springs), Cathedral Hill",
+    "matchScore": 92,
+    "whyItFits": "Close to restaurants and nightlife, updated appliances"
+  },
+  {
+    "id": "r121",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/557",
+    "price": 4428,
+    "location": "34025 York Road, East Cut",
+    "matchScore": 82,
+    "whyItFits": "Rooftop deck, bike storage, pet-friendly"
+  },
+  {
+    "id": "z122",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/452",
+    "price": 4054,
+    "location": "Sipes - Goodwin (455 Francesco Green), East Cut",
+    "matchScore": 78,
+    "whyItFits": "Affordable for the area, good transit access, safe neighborhood"
+  },
+  {
+    "id": "r123",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/553",
+    "price": 3989,
+    "location": "284 Collier Circle, Mission Bay",
+    "matchScore": 82,
+    "whyItFits": "Quiet street, private balcony, in-unit washer/dryer"
+  },
+  {
+    "id": "z124",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/490",
+    "price": 3248,
+    "location": "76900 Devonte Fields, North Beach",
+    "matchScore": 77,
+    "whyItFits": "Quiet street, private balcony, in-unit washer/dryer"
+  },
+  {
+    "id": "a125",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/512",
+    "price": 2565,
+    "location": "1091 Jenkins Grove, SoMa",
+    "matchScore": 89,
+    "whyItFits": "Luxury amenities, fitness center, coworking space"
+  },
+  {
+    "id": "a126",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/422",
+    "price": 5416,
+    "location": "3792 Donnelly Mountain, SoMa",
+    "matchScore": 87,
+    "whyItFits": "Good price for SoMa, pool and fitness center, allows large dogs"
+  },
+  {
+    "id": "z127",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/497",
+    "price": 4131,
+    "location": "85518 Beach Road, Hayes Valley",
+    "matchScore": 72,
+    "whyItFits": "Heart of the Mission, great price, close to BART"
+  },
+  {
+    "id": "z128",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/558",
+    "price": 4920,
+    "location": "744 Little Causeway, Tenderloin",
+    "matchScore": 83,
+    "whyItFits": "Within budget, 10 minutes from preferred neighborhood, allows cats"
+  },
+  {
+    "id": "z129",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/582",
+    "price": 2581,
+    "location": "Wyman and Sons (37528 W 2nd Street), Hayes Valley",
+    "matchScore": 71,
+    "whyItFits": "Heart of the Mission, great price, close to BART"
+  },
+  {
+    "id": "r130",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/479",
+    "price": 4233,
+    "location": "68379 Judah Forges, Cathedral Hill",
+    "matchScore": 88,
+    "whyItFits": "Historic building, character details, great location"
+  },
+  {
+    "id": "a131",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/416",
+    "price": 2956,
+    "location": "Trantow - O'Kon (77389 Wilmer Coves), Cathedral Hill",
+    "matchScore": 82,
+    "whyItFits": "Rooftop deck, bike storage, pet-friendly"
+  },
+  {
+    "id": "a132",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/506",
+    "price": 2986,
+    "location": "9496 Cummerata Trafficway, Potrero Hill",
+    "matchScore": 70,
+    "whyItFits": "Modern kitchen, high ceilings, natural light"
+  },
+  {
+    "id": "a133",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/499",
+    "price": 4965,
+    "location": "71885 Gloucester Road, Mission Bay",
+    "matchScore": 83,
+    "whyItFits": "Good price for SoMa, pool and fitness center, allows large dogs"
+  },
+  {
+    "id": "a134",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/494",
+    "price": 4363,
+    "location": "78121 Klein Route, Castro",
+    "matchScore": 80,
+    "whyItFits": "New construction, smart home features, concierge service"
+  },
+  {
+    "id": "a135",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/503",
+    "price": 3338,
+    "location": "73601 E 6th Street, North Beach",
+    "matchScore": 88,
+    "whyItFits": "Close to restaurants and nightlife, updated appliances"
+  },
+  {
+    "id": "z136",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/509",
+    "price": 3841,
+    "location": "Osinski, Macejkovic and Brown (36987 Russell Street), Hayes Valley",
+    "matchScore": 83,
+    "whyItFits": "New construction, smart home features, concierge service"
+  },
+  {
+    "id": "r137",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/593",
+    "price": 4762,
+    "location": "40792 Field Lane, Tenderloin",
+    "matchScore": 93,
+    "whyItFits": "Within budget, 10 minutes from preferred neighborhood, allows cats"
+  },
+  {
+    "id": "a138",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/460",
+    "price": 3404,
+    "location": "Anderson - Koss (381 N Maple Street), Pacific Heights",
+    "matchScore": 87,
+    "whyItFits": "Floor to ceiling windows, incredible views, 24/7 concierge"
+  },
+  {
+    "id": "a139",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/504",
+    "price": 4249,
+    "location": "Schimmel - Barton (865 Coronation Road), SoMa",
+    "matchScore": 98,
+    "whyItFits": "New construction, smart home features, concierge service"
+  },
+  {
+    "id": "z140",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/487",
+    "price": 4052,
+    "location": "2096 W 6th Street, Potrero Hill",
+    "matchScore": 82,
+    "whyItFits": "Floor to ceiling windows, incredible views, 24/7 concierge"
+  },
+  {
+    "id": "a141",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/531",
+    "price": 2812,
+    "location": "466 Prosacco Ferry, North Beach",
+    "matchScore": 81,
+    "whyItFits": "Heart of the Mission, great price, close to BART"
+  },
+  {
+    "id": "a142",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/522",
+    "price": 3494,
+    "location": "Gorczany - Witting (560 Francesca Light), North Beach",
+    "matchScore": 83,
+    "whyItFits": "Parking included, modern amenities, walkable neighborhood"
+  },
+  {
+    "id": "z143",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/479",
+    "price": 4038,
+    "location": "1020 Eulah Springs, Hayes Valley",
+    "matchScore": 78,
+    "whyItFits": "Affordable for the area, good transit access, safe neighborhood"
+  },
+  {
+    "id": "z144",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/462",
+    "price": 5223,
+    "location": "Jones Inc (45847 Chapel Close), North Beach",
+    "matchScore": 90,
+    "whyItFits": "Modern kitchen, high ceilings, natural light"
+  },
+  {
+    "id": "a145",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/474",
+    "price": 2843,
+    "location": "160 Andres Parks, Tenderloin",
+    "matchScore": 81,
+    "whyItFits": "Heart of the Mission, great price, close to BART"
+  },
+  {
+    "id": "z146",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/527",
+    "price": 3586,
+    "location": "103 S 14th Street, East Cut",
+    "matchScore": 87,
+    "whyItFits": "Within budget, 10 minutes from preferred neighborhood, allows cats"
+  },
+  {
+    "id": "a147",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/512",
+    "price": 4232,
+    "location": "Grimes Inc (719 Kaden Coves), North Beach",
+    "matchScore": 71,
+    "whyItFits": "Brand new building, amazing gym, 1 block from work"
+  },
+  {
+    "id": "r148",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/584",
+    "price": 4895,
+    "location": "8646 Elmore Shores, Russian Hill",
+    "matchScore": 93,
+    "whyItFits": "New construction, smart home features, concierge service"
+  },
+  {
+    "id": "r149",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/414",
+    "price": 4438,
+    "location": "Hegmann, Crist and Balistreri (4676 Cummerata Key), Pacific Heights",
+    "matchScore": 88,
+    "whyItFits": "Good price for SoMa, pool and fitness center, allows large dogs"
+  },
+  {
+    "id": "r150",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/501",
+    "price": 2921,
+    "location": "632 Maple Street, Pacific Heights",
+    "matchScore": 84,
+    "whyItFits": "Within budget, 10 minutes from preferred neighborhood, allows cats"
+  },
+  {
+    "id": "a151",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/593",
+    "price": 4980,
+    "location": "Haley, Towne and Mitchell (13107 Green Underpass), Castro",
+    "matchScore": 98,
+    "whyItFits": "Floor to ceiling windows, incredible views, 24/7 concierge"
+  },
+  {
+    "id": "r152",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/411",
+    "price": 3407,
+    "location": "5155 The Spinney, Castro",
+    "matchScore": 77,
+    "whyItFits": "Parking included, modern amenities, walkable neighborhood"
+  },
+  {
+    "id": "r153",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/525",
+    "price": 3705,
+    "location": "635 Irma Path, Pacific Heights",
+    "matchScore": 98,
+    "whyItFits": "New construction, smart home features, concierge service"
+  },
+  {
+    "id": "r154",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/558",
+    "price": 4100,
+    "location": "40452 W Main Street, North Beach",
+    "matchScore": 95,
+    "whyItFits": "Brand new building, amazing gym, 1 block from work"
+  },
+  {
+    "id": "z155",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/516",
+    "price": 3660,
+    "location": "Doyle - Ruecker (89149 Stracke Oval), Marina",
+    "matchScore": 84,
+    "whyItFits": "Heart of the Mission, great price, close to BART"
+  },
+  {
+    "id": "a156",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/577",
+    "price": 5041,
+    "location": "8759 Berneice Summit, Tenderloin",
+    "matchScore": 95,
+    "whyItFits": "Pet friendly, in-unit laundry, close to public transport"
+  },
+  {
+    "id": "r157",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/401",
+    "price": 3336,
+    "location": "Herzog - Schneider (9046 S Church Street), Cathedral Hill",
+    "matchScore": 76,
+    "whyItFits": "Luxury amenities, fitness center, coworking space"
+  },
+  {
+    "id": "a158",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/498",
+    "price": 5038,
+    "location": "Runte, Oberbrunner and Runolfsson (307 School Street), Russian Hill",
+    "matchScore": 87,
+    "whyItFits": "Pet friendly, in-unit laundry, close to public transport"
+  },
+  {
+    "id": "z159",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/500",
+    "price": 4068,
+    "location": "1318 Beech Grove, East Cut",
+    "matchScore": 78,
+    "whyItFits": "Pet friendly, in-unit laundry, close to public transport"
+  },
+  {
+    "id": "a160",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/445",
+    "price": 5219,
+    "location": "14222 W Washington Street, Russian Hill",
+    "matchScore": 79,
+    "whyItFits": "Heart of the Mission, great price, close to BART"
+  },
+  {
+    "id": "r161",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/543",
+    "price": 2715,
+    "location": "4618 Kirlin Oval, Tenderloin",
+    "matchScore": 89,
+    "whyItFits": "Great neighborhood, pet spa, rooftop terrace"
+  },
+  {
+    "id": "a162",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/400",
+    "price": 2663,
+    "location": "5172 Graham Cove, Potrero Hill",
+    "matchScore": 91,
+    "whyItFits": "Floor to ceiling windows, incredible views, 24/7 concierge"
+  },
+  {
+    "id": "r163",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/487",
+    "price": 3440,
+    "location": "Glover and Sons (70802 Gordon Road), SoMa",
+    "matchScore": 92,
+    "whyItFits": "Affordable for the area, good transit access, safe neighborhood"
+  },
+  {
+    "id": "a164",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/541",
+    "price": 5399,
+    "location": "Ratke - Orn (164 Nader Ranch), Castro",
+    "matchScore": 92,
+    "whyItFits": "Luxury amenities, fitness center, coworking space"
+  },
+  {
+    "id": "z165",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/474",
+    "price": 3873,
+    "location": "603 N 5th Street, Mission District",
+    "matchScore": 76,
+    "whyItFits": "Good price for SoMa, pool and fitness center, allows large dogs"
+  },
+  {
+    "id": "z166",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/530",
+    "price": 4323,
+    "location": "8826 Thompson Extension, Marina",
+    "matchScore": 78,
+    "whyItFits": "Brand new building, amazing gym, 1 block from work"
+  },
+  {
+    "id": "a167",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/403",
+    "price": 2544,
+    "location": "Gleichner and Sons (4718 Fredy Cape), Pacific Heights",
+    "matchScore": 80,
+    "whyItFits": "Good price for SoMa, pool and fitness center, allows large dogs"
+  },
+  {
+    "id": "z168",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/504",
+    "price": 3435,
+    "location": "4550 Windler Manors, East Cut",
+    "matchScore": 92,
+    "whyItFits": "Quiet street, private balcony, in-unit washer/dryer"
+  },
+  {
+    "id": "a169",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/404",
+    "price": 4440,
+    "location": "Abbott Inc (78120 Oma Manors), Mission District",
+    "matchScore": 98,
+    "whyItFits": "New construction, smart home features, concierge service"
+  },
+  {
+    "id": "a170",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/592",
+    "price": 4743,
+    "location": "533 Danny Fields, Marina",
+    "matchScore": 83,
+    "whyItFits": "Pet friendly, in-unit laundry, close to public transport"
+  },
+  {
+    "id": "a171",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/478",
+    "price": 2941,
+    "location": "Sauer LLC (590 Fahey Drives), Marina",
+    "matchScore": 93,
+    "whyItFits": "Rooftop deck, bike storage, pet-friendly"
+  },
+  {
+    "id": "a172",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/448",
+    "price": 2902,
+    "location": "Murray - King (9248 Barton Road), Hayes Valley",
+    "matchScore": 97,
+    "whyItFits": "Prestigious neighborhood, stunning views, hardwood floors"
+  },
+  {
+    "id": "r173",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/593",
+    "price": 4880,
+    "location": "Sporer - Wunsch (38454 Cassandre Knolls), Russian Hill",
+    "matchScore": 94,
+    "whyItFits": "Great neighborhood, pet spa, rooftop terrace"
+  },
+  {
+    "id": "z174",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/592",
+    "price": 4878,
+    "location": "Wunsch Group (795 Humberto Overpass), Tenderloin",
+    "matchScore": 96,
+    "whyItFits": "Affordable for the area, good transit access, safe neighborhood"
+  },
+  {
+    "id": "r175",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/586",
+    "price": 2536,
+    "location": "Russel Inc (247 Lucinda Plaza), Tenderloin",
+    "matchScore": 70,
+    "whyItFits": "Good price for SoMa, pool and fitness center, allows large dogs"
+  },
+  {
+    "id": "z176",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/474",
+    "price": 5480,
+    "location": "Jacobi - VonRueden (38704 Jayden Plaza), North Beach",
+    "matchScore": 71,
+    "whyItFits": "Quiet street, private balcony, in-unit washer/dryer"
+  },
+  {
+    "id": "r177",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/438",
+    "price": 3576,
+    "location": "953 E Jefferson Street, Marina",
+    "matchScore": 89,
+    "whyItFits": "Great neighborhood, pet spa, rooftop terrace"
+  },
+  {
+    "id": "a178",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/503",
+    "price": 4245,
+    "location": "2001 Elm Road, Mission District",
+    "matchScore": 82,
+    "whyItFits": "Modern kitchen, high ceilings, natural light"
+  },
+  {
+    "id": "a179",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/466",
+    "price": 3114,
+    "location": "9984 Memorial Drive, Pacific Heights",
+    "matchScore": 87,
+    "whyItFits": "Parking included, modern amenities, walkable neighborhood"
+  },
+  {
+    "id": "a180",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/576",
+    "price": 4814,
+    "location": "19548 Greenwood Road, Hayes Valley",
+    "matchScore": 88,
+    "whyItFits": "Brand new building, amazing gym, 1 block from work"
+  },
+  {
+    "id": "r181",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/446",
+    "price": 3178,
+    "location": "1170 Ledner Canyon, Pacific Heights",
+    "matchScore": 78,
+    "whyItFits": "Floor to ceiling windows, incredible views, 24/7 concierge"
+  },
+  {
+    "id": "z182",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/562",
+    "price": 3045,
+    "location": "Ratke - Schumm (367 Lodge Lane), Russian Hill",
+    "matchScore": 80,
+    "whyItFits": "Affordable for the area, good transit access, safe neighborhood"
+  },
+  {
+    "id": "a183",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/453",
+    "price": 4251,
+    "location": "6605 Clay Lane, Marina",
+    "matchScore": 97,
+    "whyItFits": "Within budget, 10 minutes from preferred neighborhood, allows cats"
+  },
+  {
+    "id": "r184",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/585",
+    "price": 4592,
+    "location": "715 Hills Viaduct, Pacific Heights",
+    "matchScore": 90,
+    "whyItFits": "Heart of the Mission, great price, close to BART"
+  },
+  {
+    "id": "a185",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/590",
+    "price": 4604,
+    "location": "381 Harvey Wall, Russian Hill",
+    "matchScore": 91,
+    "whyItFits": "Modern kitchen, high ceilings, natural light"
+  },
+  {
+    "id": "r186",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/509",
+    "price": 3205,
+    "location": "87308 Mckayla Walks, Castro",
+    "matchScore": 90,
+    "whyItFits": "Historic building, character details, great location"
+  },
+  {
+    "id": "a187",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/575",
+    "price": 2971,
+    "location": "7818 Hyatt Courts, SoMa",
+    "matchScore": 78,
+    "whyItFits": "Floor to ceiling windows, incredible views, 24/7 concierge"
+  },
+  {
+    "id": "a188",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/524",
+    "price": 3363,
+    "location": "65890 Ash Street, Marina",
+    "matchScore": 78,
+    "whyItFits": "Good price for SoMa, pool and fitness center, allows large dogs"
+  },
+  {
+    "id": "r189",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/484",
+    "price": 4515,
+    "location": "Welch LLC (1724 Grove Lane), Russian Hill",
+    "matchScore": 88,
+    "whyItFits": "Parking included, modern amenities, walkable neighborhood"
+  },
+  {
+    "id": "a190",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/469",
+    "price": 4714,
+    "location": "34905 Walker Corners, Mission District",
+    "matchScore": 90,
+    "whyItFits": "Classic building, spacious layout, close to Japantown"
+  },
+  {
+    "id": "r191",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/525",
+    "price": 3392,
+    "location": "52269 Blick Centers, Hayes Valley",
+    "matchScore": 72,
+    "whyItFits": "Modern kitchen, high ceilings, natural light"
+  },
+  {
+    "id": "r192",
+    "platform": "Redfin",
+    "photo": "https://placekeanu.com/589",
+    "price": 5341,
+    "location": "92676 Donato Park, Pacific Heights",
+    "matchScore": 73,
+    "whyItFits": "Brand new building, amazing gym, 1 block from work"
+  },
+  {
+    "id": "a193",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/535",
+    "price": 3697,
+    "location": "67640 Fritsch Lake, Mission Bay",
+    "matchScore": 94,
+    "whyItFits": "Parking included, modern amenities, walkable neighborhood"
+  },
+  {
+    "id": "a194",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/440",
+    "price": 3226,
+    "location": "Morar LLC (40794 Houston Ridge), Mission District",
+    "matchScore": 90,
+    "whyItFits": "Pet friendly, in-unit laundry, close to public transport"
+  },
+  {
+    "id": "a195",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/561",
+    "price": 2743,
+    "location": "32220 Reynolds Parkway, Marina",
+    "matchScore": 97,
+    "whyItFits": "New construction, smart home features, concierge service"
+  },
+  {
+    "id": "a196",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/474",
+    "price": 4253,
+    "location": "2677 Bernhard Heights, Mission Bay",
+    "matchScore": 85,
+    "whyItFits": "Great neighborhood, pet spa, rooftop terrace"
+  },
+  {
+    "id": "a197",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/565",
+    "price": 4448,
+    "location": "562 Madison Avenue, North Beach",
+    "matchScore": 97,
+    "whyItFits": "Pet friendly, in-unit laundry, close to public transport"
+  },
+  {
+    "id": "z198",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/414",
+    "price": 3280,
+    "location": "35049 Norval Islands, East Cut",
+    "matchScore": 74,
+    "whyItFits": "Brand new building, amazing gym, 1 block from work"
+  },
+  {
+    "id": "z199",
+    "platform": "Zillow",
+    "photo": "https://placekeanu.com/566",
+    "price": 4107,
+    "location": "861 Else Fields, North Beach",
+    "matchScore": 80,
+    "whyItFits": "Good price for SoMa, pool and fitness center, allows large dogs"
+  },
+  {
+    "id": "a200",
+    "platform": "Apartments.com",
+    "photo": "https://placekeanu.com/568",
+    "price": 3081,
+    "location": "Lueilwitz LLC (933 Weissnat Track), Pacific Heights",
+    "matchScore": 94,
+    "whyItFits": "Close to restaurants and nightlife, updated appliances"
+  }
+]
