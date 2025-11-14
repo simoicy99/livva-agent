@@ -96,7 +96,7 @@ export default function TenantPage() {
 
     setTimeout(() => {
       clearInterval(scanInterval)
-      setScanProgress(100)
+      setScanProgress(1000)
       setViewState("thinking")
       
       let stepIndex = 0
@@ -110,10 +110,10 @@ export default function TenantPage() {
           setTimeout(() => {
             setListings(listingsData as Listing[])
             setViewState("results")
-          }, 500)
+          }, 1000)
         }
-      }, 1800)
-    }, 2000)
+      }, 3600)
+    }, 4000)
   }
 
   const handleListingClick = (listing: Listing) => {
