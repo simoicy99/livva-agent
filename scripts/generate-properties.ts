@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker"
 import { writeFileSync } from "fs"
 import { join } from "path"
-import type { Listing } from "../lib/data"
+import type { Listing } from "../lib/type"
 
 const PLATFORMS: Listing["platform"][] = ["Zillow", "Redfin", "Apartments.com"]
 
