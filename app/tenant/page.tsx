@@ -6,12 +6,22 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Checkbox } from "@/components/ui/checkbox"
+import { Button } from "@/components/ui/button"
+import { Progress } from "@/components/ui/progress"
+import { Spinner } from "@/components/ui/spinner"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+import { Search, Sparkles, CheckCircle2, Zap } from "lucide-react"
 import { Listing } from "@/lib/type"
 import listingsData from "@/lib/data.json"
 
 type FormState = {
   location: string
-  minBudget: string
   maxBudget: string
   moveInDate: string
   mustHaves: string[]
@@ -32,7 +42,6 @@ export default function TenantPage() {
   const [viewState, setViewState] = useState<ViewState>("form")
   const [formData, setFormData] = useState<FormState>({
     location: "",
-    minBudget: "",
     maxBudget: "",
     moveInDate: "",
     mustHaves: [],
@@ -40,6 +49,9 @@ export default function TenantPage() {
   const [selectedListing, setSelectedListing] = useState<Listing | null>(null)
   const [thinkingSteps, setThinkingSteps] = useState<string[]>([])
   const [listings, setListings] = useState<Listing[]>([])
+  const [sortBy, setSortBy] = useState<"price" | "matchScore">("matchScore")
+  const [scanProgress, setScanProgress] = useState(0)
+  const [currentStepIndex, setCurrentStepIndex] = useState(0)
 
   const handleInputChange = (field: keyof FormState, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
@@ -55,23 +67,53 @@ export default function TenantPage() {
   }
 
   const handleSubmit = () => {
+    if (!formData.location || !formData.maxBudget) {
+      return
+    }
+
+    setScanProgress(0)
+    setCurrentStepIndex(0)
+    setThinkingSteps([])
     setViewState("scanning")
     
+    const scanInterval = setInterval(() => {
+      setScanProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(scanInterval)
+          return 100
+        }
+        return prev + 2
+      })
+    }, 40)
+
     setTimeout(() => {
+      clearInterval(scanInterval)
+      setScanProgress(100)
       setViewState("thinking")
+      
       const steps = [
-        `Searching listings in ${formData.location || "San Francisco"} under $${formData.maxBudget || "3,000"}`,
-        formData.mustHaves.length > 0
-          ? `Filtering for ${formData.mustHaves.join(", ")}`
-          : "Filtering candidates",
-        "Scoring 87 candidates",
+        {
+          text: `Searching listings in ${formData.location} under $${formData.maxBudget}`,
+          icon: Search,
+        },
+        {
+          text: formData.mustHaves.length > 0
+            ? `Filtering for ${formData.mustHaves.join(", ")}`
+            : "Filtering candidates",
+          icon: Sparkles,
+        },
+        {
+          text: "Scoring and ranking candidates",
+          icon: Zap,
+        },
       ]
       
-      let currentStep = 0
+      let stepIndex = 0
       const stepInterval = setInterval(() => {
-        if (currentStep < steps.length) {
-          setThinkingSteps((prev) => [...prev, steps[currentStep]])
-          currentStep++
+        if (stepIndex < steps.length) {
+          setCurrentStepIndex(stepIndex)
+          setThinkingSteps((prev) => [...prev, steps[stepIndex].text])
+          stepIndex++
         } else {
           clearInterval(stepInterval)
           setTimeout(() => {
@@ -79,7 +121,7 @@ export default function TenantPage() {
             setViewState("results")
           }, 500)
         }
-      }, 1500)
+      }, 1800)
     }, 2000)
   }
 
@@ -93,76 +135,67 @@ export default function TenantPage() {
   }
 
   if (viewState === "form") {
+    const canSubmit = formData.location && formData.maxBudget
+
     return (
       <div className="flex min-h-screen flex-col items-center justify-center p-4">
-        <Card className="w-full max-w-2xl">
+        <Card className="w-full max-w-lg">
           <CardHeader>
             <CardTitle>Find Your Perfect Rental</CardTitle>
-            <CardDescription>Answer a few questions to get started</CardDescription>
+            <CardDescription>Tell us what you&apos;re looking for</CardDescription>
           </CardHeader>
-          <CardContent className="space-y-6">
+          <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="location">Where do you want to live?</Label>
+              <Label htmlFor="location">
+                Where do you want to live? <span className="text-destructive">*</span>
+              </Label>
               <Input
                 id="location"
                 type="text"
                 placeholder="City or neighborhood"
                 value={formData.location}
                 onChange={(e) => handleInputChange("location", e.target.value)}
-                aria-label="Location"
+                required
               />
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Label htmlFor="minBudget">Min Budget</Label>
-                <Input
-                  id="minBudget"
-                  type="number"
-                  placeholder="$0"
-                  value={formData.minBudget}
-                  onChange={(e) => handleInputChange("minBudget", e.target.value)}
-                  aria-label="Minimum budget"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="maxBudget">Max Budget</Label>
-                <Input
-                  id="maxBudget"
-                  type="number"
-                  placeholder="$0"
-                  value={formData.maxBudget}
-                  onChange={(e) => handleInputChange("maxBudget", e.target.value)}
-                  aria-label="Maximum budget"
-                />
-              </div>
+            <div className="space-y-2">
+              <Label htmlFor="maxBudget">
+                Maximum Budget <span className="text-destructive">*</span>
+              </Label>
+              <Input
+                id="maxBudget"
+                type="number"
+                placeholder="$0"
+                value={formData.maxBudget}
+                onChange={(e) => handleInputChange("maxBudget", e.target.value)}
+                required
+              />
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="moveInDate">Move-in date?</Label>
+              <Label htmlFor="moveInDate">Move-in date (optional)</Label>
               <Input
                 id="moveInDate"
                 type="date"
                 value={formData.moveInDate}
                 onChange={(e) => handleInputChange("moveInDate", e.target.value)}
-                aria-label="Move-in date"
               />
             </div>
 
-            <div className="space-y-3">
-              <Label>Must-haves</Label>
-              <div className="grid grid-cols-2 gap-3">
+            <div className="space-y-2">
+              <Label>Must-haves (optional)</Label>
+              <div className="grid grid-cols-2 gap-2">
                 {MUST_HAVES_OPTIONS.map((option) => (
                   <div key={option} className="flex items-center space-x-2">
                     <Checkbox
                       id={option}
                       checked={formData.mustHaves.includes(option)}
                       onCheckedChange={() => handleMustHaveToggle(option)}
-                      aria-label={option}
                     />
                     <Label
                       htmlFor={option}
-                      className="cursor-pointer font-normal"
+                      className="cursor-pointer font-normal text-sm"
                       onClick={() => handleMustHaveToggle(option)}
                     >
                       {option}
@@ -172,21 +205,13 @@ export default function TenantPage() {
               </div>
             </div>
 
-            <div
-              role="button"
-              tabIndex={0}
+            <Button
               onClick={handleSubmit}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault()
-                  handleSubmit()
-                }
-              }}
-              className="cursor-pointer rounded-md border px-4 py-2 text-center transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-              aria-label="Start search"
+              disabled={!canSubmit}
+              className="w-full"
             >
               Start Search
-            </div>
+            </Button>
           </CardContent>
         </Card>
       </div>
@@ -196,9 +221,49 @@ export default function TenantPage() {
   if (viewState === "scanning") {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center p-4">
-        <Card className="w-full max-w-2xl">
-          <CardContent className="py-12 text-center">
-            <p className="text-lg">Got it. I am scanning Zillow, Redfin, and Apartments.com for you in the background.</p>
+        <Card className="w-full max-w-2xl border-2">
+          <CardContent className="py-16 px-8">
+            <div className="space-y-6">
+              <div className="flex items-center justify-center">
+                <div className="relative">
+                  <div className="absolute inset-0 rounded-full bg-primary/20 animate-ping" />
+                  <div className="relative rounded-full bg-primary/10 p-4">
+                    <Search className="h-8 w-8 text-primary animate-pulse" />
+                  </div>
+                </div>
+              </div>
+              
+              <div className="space-y-3 text-center">
+                <h2 className="text-2xl font-semibold">Scanning Multiple Platforms</h2>
+                <p className="text-muted-foreground">
+                  Searching Zillow, Redfin, and Apartments.com in real-time...
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <Progress value={scanProgress} className="h-2" />
+                <div className="flex justify-between text-xs text-muted-foreground">
+                  <span>Analyzing listings</span>
+                  <span>{Math.round(scanProgress)}%</span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-3 gap-4 pt-4">
+                {["Zillow", "Redfin", "Apartments.com"].map((platform, idx) => (
+                  <div
+                    key={platform}
+                    className="flex flex-col items-center gap-2 p-3 rounded-lg border bg-card/50 transition-all"
+                    style={{
+                      opacity: scanProgress > (idx + 1) * 30 ? 1 : 0.5,
+                      transform: scanProgress > (idx + 1) * 30 ? "scale(1)" : "scale(0.95)",
+                    }}
+                  >
+                    <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
+                    <span className="text-xs font-medium">{platform}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </CardContent>
         </Card>
       </div>
@@ -206,23 +271,99 @@ export default function TenantPage() {
   }
 
   if (viewState === "thinking") {
+    const totalSteps = 3
+    const progress = ((thinkingSteps.length / totalSteps) * 100)
+
     return (
       <div className="flex min-h-screen flex-col items-center justify-center p-4">
-        <Card className="w-full max-w-2xl">
-          <CardHeader>
-            <CardTitle>Searching...</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-3">
-            {thinkingSteps.map((step, index) => (
-              <div key={index} className="flex items-center gap-2">
-                <div className="h-2 w-2 rounded-full bg-primary" />
-                <p className="text-sm">{step}</p>
+        <Card className="w-full max-w-2xl border-2">
+          <CardHeader className="pb-6">
+            <div className="flex items-center gap-3">
+              <div className="relative">
+                <Spinner className="h-6 w-6 text-primary" />
+                <div className="absolute inset-0 rounded-full bg-primary/20 animate-ping" />
               </div>
-            ))}
-            {thinkingSteps.length < 3 && (
-              <div className="flex items-center gap-2 opacity-50">
-                <div className="h-2 w-2 rounded-full bg-muted" />
-                <p className="text-sm">Processing...</p>
+              <div>
+                <CardTitle className="text-xl">AI Agent Working</CardTitle>
+                <CardDescription>Analyzing and matching properties for you</CardDescription>
+              </div>
+            </div>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            <Progress value={progress} className="h-2" />
+
+            <div className="space-y-4">
+              {[
+                {
+                  text: `Searching listings in ${formData.location} under $${formData.maxBudget}`,
+                  icon: Search,
+                  completed: thinkingSteps.length > 0,
+                },
+                {
+                  text: formData.mustHaves.length > 0
+                    ? `Filtering for ${formData.mustHaves.join(", ")}`
+                    : "Filtering candidates",
+                  icon: Sparkles,
+                  completed: thinkingSteps.length > 1,
+                },
+                {
+                  text: "Scoring and ranking candidates",
+                  icon: Zap,
+                  completed: thinkingSteps.length > 2,
+                },
+              ].map((step, index) => {
+                const Icon = step.icon
+                const isActive = currentStepIndex === index && !step.completed
+                const isCompleted = step.completed
+
+                return (
+                  <div
+                    key={index}
+                    className={`flex items-start gap-4 p-4 rounded-lg border transition-all ${
+                      isActive
+                        ? "bg-primary/5 border-primary/20 shadow-sm"
+                        : isCompleted
+                        ? "bg-muted/30 border-muted"
+                        : "bg-card border-border opacity-50"
+                    }`}
+                  >
+                    <div className="relative mt-0.5">
+                      {isCompleted ? (
+                        <CheckCircle2 className="h-5 w-5 text-primary" />
+                      ) : isActive ? (
+                        <div className="relative">
+                          <Icon className="h-5 w-5 text-primary animate-pulse" />
+                          <div className="absolute inset-0 rounded-full bg-primary/20 animate-ping" />
+                        </div>
+                      ) : (
+                        <Icon className="h-5 w-5 text-muted-foreground" />
+                      )}
+                    </div>
+                    <div className="flex-1 space-y-1">
+                      <p
+                        className={`text-sm font-medium transition-colors ${
+                          isActive ? "text-foreground" : isCompleted ? "text-foreground" : "text-muted-foreground"
+                        }`}
+                      >
+                        {step.text}
+                      </p>
+                      {isActive && (
+                        <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                          <Spinner className="h-3 w-3" />
+                          <span>Processing...</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+
+            {thinkingSteps.length === totalSteps && (
+              <div className="pt-4 text-center">
+                <p className="text-sm text-muted-foreground animate-pulse">
+                  Finalizing results...
+                </p>
               </div>
             )}
           </CardContent>
@@ -232,16 +373,34 @@ export default function TenantPage() {
   }
 
   if (viewState === "results") {
+    const sortedListings = [...listings].sort((a, b) => {
+      if (sortBy === "price") {
+        return a.price - b.price
+      }
+      return b.matchScore - a.matchScore
+    })
+
     return (
       <div className="flex min-h-screen flex-col p-4">
-        <div className="mx-auto w-full max-w-4xl space-y-6">
-          <div>
-            <h1 className="text-2xl font-semibold">Top Matches</h1>
-            <p className="text-sm text-muted-foreground">{listings.length} listings found</p>
+        <div className="mx-auto w-full max-w-4xl space-y-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-2xl font-semibold">Top Matches</h1>
+              <p className="text-sm text-muted-foreground">{listings.length} listings found</p>
+            </div>
+            <Select value={sortBy} onValueChange={(value) => setSortBy(value as "price" | "matchScore")}>
+              <SelectTrigger className="w-40">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="matchScore">Match Score</SelectItem>
+                <SelectItem value="price">Price</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
 
           <div className="grid gap-4 md:grid-cols-2">
-            {listings.map((listing) => (
+            {sortedListings.map((listing) => (
               <Card
                 key={listing.id}
                 role="button"
