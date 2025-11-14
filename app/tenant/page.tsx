@@ -6,7 +6,8 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Checkbox } from "@/components/ui/checkbox"
-import { generateMockListings, type Listing } from "@/lib/data"
+import { Listing } from "@/lib/type"
+import listingsData from "@/lib/data.json"
 
 type FormState = {
   location: string
@@ -74,7 +75,7 @@ export default function TenantPage() {
         } else {
           clearInterval(stepInterval)
           setTimeout(() => {
-            setListings(generateMockListings())
+            setListings(listingsData as Listing[])
             setViewState("results")
           }, 500)
         }
