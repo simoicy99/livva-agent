@@ -16,7 +16,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { Search, Sparkles, CheckCircle2, Zap } from "lucide-react"
+import { Search, Sparkles, CheckCircle2, Zap, Crown } from "lucide-react"
 import { Listing } from "@/lib/type"
 import listingsData from "@/lib/data.json"
 
@@ -76,6 +76,14 @@ export default function TenantPage() {
     setThinkingSteps([])
     setViewState("scanning")
     
+    const steps = [
+      `Searching listings in ${formData.location} under $${formData.maxBudget}`,
+      formData.mustHaves.length > 0
+        ? `Filtering for ${formData.mustHaves.join(", ")}`
+        : "Filtering candidates",
+      "Scoring and ranking candidates",
+    ]
+    
     const scanInterval = setInterval(() => {
       setScanProgress((prev) => {
         if (prev >= 100) {
@@ -91,28 +99,11 @@ export default function TenantPage() {
       setScanProgress(100)
       setViewState("thinking")
       
-      const steps = [
-        {
-          text: `Searching listings in ${formData.location} under $${formData.maxBudget}`,
-          icon: Search,
-        },
-        {
-          text: formData.mustHaves.length > 0
-            ? `Filtering for ${formData.mustHaves.join(", ")}`
-            : "Filtering candidates",
-          icon: Sparkles,
-        },
-        {
-          text: "Scoring and ranking candidates",
-          icon: Zap,
-        },
-      ]
-      
       let stepIndex = 0
       const stepInterval = setInterval(() => {
         if (stepIndex < steps.length) {
           setCurrentStepIndex(stepIndex)
-          setThinkingSteps((prev) => [...prev, steps[stepIndex].text])
+          setThinkingSteps((prev) => [...prev, steps[stepIndex]])
           stepIndex++
         } else {
           clearInterval(stepInterval)
@@ -274,6 +265,23 @@ export default function TenantPage() {
     const totalSteps = 3
     const progress = ((thinkingSteps.length / totalSteps) * 100)
 
+    const stepConfigs = [
+      {
+        text: `Searching listings in ${formData.location} under $${formData.maxBudget}`,
+        icon: Search,
+      },
+      {
+        text: formData.mustHaves.length > 0
+          ? `Filtering for ${formData.mustHaves.join(", ")}`
+          : "Filtering candidates",
+        icon: Sparkles,
+      },
+      {
+        text: "Scoring and ranking candidates",
+        icon: Zap,
+      },
+    ]
+
     return (
       <div className="flex min-h-screen flex-col items-center justify-center p-4">
         <Card className="w-full max-w-2xl border-2">
@@ -293,28 +301,10 @@ export default function TenantPage() {
             <Progress value={progress} className="h-2" />
 
             <div className="space-y-4">
-              {[
-                {
-                  text: `Searching listings in ${formData.location} under $${formData.maxBudget}`,
-                  icon: Search,
-                  completed: thinkingSteps.length > 0,
-                },
-                {
-                  text: formData.mustHaves.length > 0
-                    ? `Filtering for ${formData.mustHaves.join(", ")}`
-                    : "Filtering candidates",
-                  icon: Sparkles,
-                  completed: thinkingSteps.length > 1,
-                },
-                {
-                  text: "Scoring and ranking candidates",
-                  icon: Zap,
-                  completed: thinkingSteps.length > 2,
-                },
-              ].map((step, index) => {
+              {stepConfigs.map((step, index) => {
                 const Icon = step.icon
-                const isActive = currentStepIndex === index && !step.completed
-                const isCompleted = step.completed
+                const isActive = currentStepIndex === index && thinkingSteps.length === index
+                const isCompleted = thinkingSteps.length > index
 
                 return (
                   <div
@@ -500,21 +490,20 @@ export default function TenantPage() {
                   </p>
                 </div>
 
-                <div
-                  role="button"
-                  tabIndex={0}
-                  onClick={() => window.open(`https://${selectedListing.platform.toLowerCase().replace(".com", "")}.com`, "_blank")}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault()
-                      window.open(`https://${selectedListing.platform.toLowerCase().replace(".com", "")}.com`, "_blank")
-                    }
-                  }}
-                  className="cursor-pointer rounded-md border px-4 py-2 text-center transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                  aria-label={`View listing on ${selectedListing.platform}`}
+                <Button
+                  asChild
+                  className="w-full"
+                  variant="default"
                 >
-                  View on {selectedListing.platform}
-                </div>
+                  <a
+                    href="https://rentlivva.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Crown className="mr-2 h-4 w-4" />
+                    Join Premium to View Listing on {selectedListing.platform}
+                  </a>
+                </Button>
               </div>
             </CardContent>
           </Card>
