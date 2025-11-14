@@ -1,6 +1,6 @@
 "use client"
 
-import type { RoomListing } from "../actions/room-listings"
+import type { RoomListing } from "../app/actions/room-listings"
 
 interface RoomListingsProps {
   listings: RoomListing[]

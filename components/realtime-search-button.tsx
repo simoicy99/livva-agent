@@ -1,8 +1,8 @@
 "use client"
 
 import { useState, useTransition } from "react"
-import { fetchRealtimeListings } from "../actions/realtime-search"
-import type { RoomListing } from "../actions/room-listings"
+import { fetchRealtimeListings } from "@/app/actions/realtime-search"
+import type { RoomListing } from "@/app/actions/room-listings"
 import { RefreshCw } from "lucide-react"
 
 interface RealtimeSearchButtonProps {

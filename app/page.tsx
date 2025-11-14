@@ -1,7 +1,7 @@
 import { Suspense } from "react"
 import { searchRoomListings, type SearchFilters } from "./actions/room-listings"
-import { SearchForm } from "./components/search-form"
-import { RoomListings } from "./components/room-listings"
+import { SearchForm } from "../components/search-form"
+import { RoomListings } from "../components/room-listings"
 
 interface HomeProps {
   searchParams: Promise<{
