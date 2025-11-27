@@ -47,7 +47,7 @@ model Listing {
   
   summary       String?  @db.Text
   
-  amenities     String[]
+  amenities     String[] 
   images        String[] 
   
   livvaNotes    String?  @map("notes_for_livva") @db.Text
