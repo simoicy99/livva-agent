@@ -39,3 +39,7 @@ pip-log.txt
 
 # Project-specific
 uv.lock
+
+
+data/*.csv
+data/*.json
