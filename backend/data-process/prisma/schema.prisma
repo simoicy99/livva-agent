@@ -1,11 +1,6 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
+// This is your Prisma schema file
 generator client {
-  provider = "prisma-client"
+  provider = "prisma-client-js"
   output   = "../generated/prisma"
 }
 
@@ -13,5 +8,53 @@ datasource db {
   provider = "postgresql"
 }
 
+// 1. Define the Roles
+enum UserRole {
+  TENANT
+  LANDLORD
+}
 
+model User {
+  id        String   @id @default(cuid())
+  clerkId   String   @unique
+  email     String   @unique
+  firstName String?
+  lastName  String?
+  imageUrl  String?
+
+  role      UserRole @default(TENANT)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+model Listing {
+  id            String   @id @default(cuid())
+  title         String
+  address       String
+  neighborhood  String?
+  price         String   
+  bedBath       String   @map("bed_bath")
+  sqft          String?  
+  unitType      String   @map("unit_type")
+  availability  String
   
+  contactName   String?  @map("contact_name") 
+  contactPhone  String?  @map("contact_phone")
+  listingLink   String   @map("listing_link") 
+  
+  summary       String?  @db.Text
+  
+  amenities     String[]
+  images        String[] 
+  
+  livvaNotes    String?  @map("notes_for_livva") @db.Text
+
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@map("listings")
+}
