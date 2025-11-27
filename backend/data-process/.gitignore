@@ -1,0 +1,14 @@
+venv/
+
+data/*.csv
+data/*.json
+data/*.txt
+data/*.pdf
+data/*.docx
+data/*.doc
+data/*.xls
+data/*.xlsx
+data/*.pptx
+data/*.ppt
+data/*.pps
+data/*.ppsx
