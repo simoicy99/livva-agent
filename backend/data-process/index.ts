@@ -16,30 +16,29 @@ if (!connectionString) {
 const pool = new Pool({ connectionString });
 const adapter = new PrismaPg(pool);
 const prisma = new PrismaClient({ adapter });
-const csvFileName = "apartments.com-room-data.csv";
+const csvFileName = "apartments-room-data.csv";
 const csvFilePath = join(dirname(fileURLToPath(import.meta.url)), "data", csvFileName);
 const csvSplitRegex = /,(?=(?:[^"]*"[^"]*")*[^"]*$)/;
 
 type CsvRow = Record<string, string>;
 
-
-// double check with schema.prisma
+// Adhering to schema.prisma - all database fields snake_case
 interface Listing {
   title: string;  
   address: string;
-  neighborhood: string;
+  neighborhood: string | null;
   price: string;
-  bedBath: string;
-  sqft: string;
-  unitType: string;
+  bed_bath: string;
+  sqft: string | null;
+  unit_type: string;
   availability: string;
-  contactName: string;
-  contactPhone: string;
-  listingLink: string;
-  summary: string;
+  contact_name: string | null;
+  contact_phone: string | null;
+  listing_link: string;
+  summary: string | null;
   amenities: string[];
   images: string[];
-  livvaNotes: string;
+  notes_for_livva: string | null;
 };
 
 const unquote = (value: string) => {
@@ -89,22 +88,23 @@ const toRequiredString = (value: string, fallback: string) => {
   return trimmed || fallback;
 };
 
-const mapCsvRowToListing = (row: CsvRow) => ({
+// Map CSV row to Listing with DB field names (snake_case)
+const mapCsvRowToListing = (row: CsvRow): Listing => ({
   title: toRequiredString(row.title ?? "", "Untitled listing"),
   address: toRequiredString(row.address ?? "", "Unknown address"),
   neighborhood: optionalField(row.neighborhood),
   price: toRequiredString(row.price ?? "", "Contact for pricing"),
-  bedBath: toRequiredString(row.bed_bath ?? "", "Unknown configuration"),
+  bed_bath: toRequiredString(row.bed_bath ?? "", "Unknown configuration"),
   sqft: optionalField(row.sqft),
-  unitType: toRequiredString(row.unit_type ?? "", "Room"),
+  unit_type: toRequiredString(row.unit_type ?? "", "Room"),
   availability: toRequiredString(row.availability ?? "", "Check availability"),
-  contactName: optionalField(row.contact_name),
-  contactPhone: optionalField(row.contact_phone),
-  listingLink: toRequiredString(row.listing_link ?? "", "https://example.com"),
+  contact_name: optionalField(row.contact_name),
+  contact_phone: optionalField(row.contact_phone),
+  listing_link: toRequiredString(row.listing_link ?? "", "https://example.com"),
   summary: optionalField(row.summary),
   amenities: parseAmenities(row.amenities),
   images: [],
-  livvaNotes: optionalField(row.notes_for_livva),
+  notes_for_livva: optionalField(row.notes_for_livva),
 });
 
 const seedListings = async () => {
@@ -118,13 +118,15 @@ const seedListings = async () => {
   const listings = rows.map(mapCsvRowToListing);
 
   await prisma.listing.deleteMany();
-  await Promise.all(listings.map((listing) => prisma.listing.create({ data: listing })));
+  await Promise.all(listings.map((listing) => 
+    prisma.listing.create({ data: listing })
+  ));
   console.log(`Seeded ${listings.length} listing(s) from ${csvFileName}.`);
 };
 
 const displayListings = async () => {
   const listings = await prisma.listing.findMany({
-    orderBy: { createdAt: "desc" },
+    orderBy: { created_at: "desc" },
   });
 
   console.log("\n" + "=".repeat(80));
@@ -137,18 +139,19 @@ const displayListings = async () => {
   }
 
   listings.forEach((listing: any, index: number) => {
+    // All database fields are snake_case:
     console.log(`${index + 1}. ${listing.title}`);
     console.log(`   Address: ${listing.address}`);
     console.log(`   Neighborhood: ${listing.neighborhood || "N/A"}`);
     console.log(`   Price: ${listing.price}`);
-    console.log(`   Bed/Bath: ${listing.bedBath}`);
+    console.log(`   Bed/Bath: ${listing.bed_bath}`);
     console.log(`   Sqft: ${listing.sqft || "N/A"}`);
-    console.log(`   Unit Type: ${listing.unitType}`);
+    console.log(`   Unit Type: ${listing.unit_type}`);
     console.log(`   Availability: ${listing.availability}`);
-    if (listing.contactName) {
-      console.log(`   Contact: ${listing.contactName}${listing.contactPhone ? ` - ${listing.contactPhone}` : ""}`);
+    if (listing.contact_name) {
+      console.log(`   Contact: ${listing.contact_name}${listing.contact_phone ? ` - ${listing.contact_phone}` : ""}`);
     }
-    console.log(`   Link: ${listing.listingLink}`);
+    console.log(`   Link: ${listing.listing_link}`);
     if (listing.amenities.length > 0) {
       console.log(`   Amenities: ${listing.amenities.join(", ")}`);
     }
@@ -175,3 +178,4 @@ main().catch((error) => {
   console.error("Seeding failed:", error);
   process.exit(1);
 });
+
