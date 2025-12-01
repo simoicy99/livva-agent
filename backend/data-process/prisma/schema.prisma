@@ -16,16 +16,16 @@ enum UserRole {
 
 model User {
   id        String   @id @default(cuid())
-  clerkId   String   @unique
+  clerk_user_id   String   @unique
   email     String   @unique
-  firstName String?
-  lastName  String?
-  imageUrl  String?
+  first_name String?
+  last_name  String?
+  image_url  String?
 
   role      UserRole @default(TENANT)
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 
   @@map("users")
 }
@@ -36,25 +36,25 @@ model Listing {
   address       String
   neighborhood  String?
   price         String   
-  bedBath       String   @map("bed_bath")
+  bed_bath       String   @map("bed_bath")
   sqft          String?  
-  unitType      String   @map("unit_type")
+  unit_type      String   @map("unit_type")
   availability  String
   
-  contactName   String?  @map("contact_name") 
-  contactPhone  String?  @map("contact_phone")
-  listingLink   String   @map("listing_link") 
+  contact_name   String?  @map("contact_name") 
+  contact_phone  String?  @map("contact_phone")
+  listing_link   String   @map("listing_link") 
   
+  
+  images        String[] 
   summary       String?  @db.Text
   
   amenities     String[] 
-  images        String[] 
-  
-  livvaNotes    String?  @map("notes_for_livva") @db.Text
+  notes_for_livva    String?  @map("notes_for_livva") @db.Text
 
 
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  created_at     DateTime @default(now())
+  updated_at     DateTime @updatedAt
 
   @@map("listings")
 }
