@@ -541,7 +541,7 @@ export default function TenantPage() {
                   <div className="p-4 space-y-2">
                     <div className="flex items-start justify-between">
                       <div>
-                        <p className="font-semibold">${formatPrice(listing.price)}/mo</p>
+                        <p className="font-semibold">{formatPrice(listing.price)}/mo</p>
                           <p className="text-sm text-muted-foreground">{listing.address}</p>
                       </div>
                       <div className="rounded bg-primary/10 px-2 py-1 text-xs font-medium">
