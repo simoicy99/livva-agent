@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import type { Listing } from "@/lib/type"
+import { Listing } from "@/generated/prisma/client"
 
 interface RoomListingsProps {
   listings: Listing[]
@@ -27,35 +27,32 @@ export function RoomListings({ listings }: RoomListingsProps) {
         >
           <div className="relative aspect-video w-full overflow-hidden rounded-t-lg">
             <Image
-              src={listing.photo}
-              alt={listing.location}
+              src={listing.images[0]}
+              alt={listing.title}
               fill
               className="object-cover"
             />
             <div className="absolute right-2 top-2 rounded bg-background/90 px-2 py-1 text-xs font-medium">
-              {listing.platform}
-            </div>
-            <div className="absolute left-2 top-2 rounded bg-primary/90 px-2 py-1 text-xs font-medium text-primary-foreground">
-              {listing.matchScore}% match
+              {listing.unit_type}
             </div>
           </div>
 
           <div className="flex flex-1 flex-col p-4">
             <div className="mb-2">
               <p className="text-lg font-semibold">${listing.price.toLocaleString()}/mo</p>
-              <p className="text-sm text-muted-foreground">{listing.location}</p>
+                <p className="text-sm text-muted-foreground">{listing.address}</p>
             </div>
 
-            <p className="mb-4 flex-1 text-sm">{listing.whyItFits}</p>
+            <p className="mb-4 flex-1 text-sm">{listing.summary}</p>
 
             <div className="mt-auto border-t pt-4">
               <a
-                href={`https://${listing.platform.toLowerCase().replace(".com", "")}.com`}
+                href={listing.listing_link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-medium text-primary hover:underline"
               >
-                View on {listing.platform} →
+                View on {new URL(listing.listing_link).hostname} →
               </a>
             </div>
           </div>

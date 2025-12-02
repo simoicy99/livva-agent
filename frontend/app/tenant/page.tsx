@@ -17,7 +17,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Search, Sparkles, CheckCircle2, Zap, Crown } from "lucide-react"
-import { Listing } from "@/lib/type"
+import { Listing } from "@/generated/prisma/client"
 import listingsData from "@/lib/data.json"
 
 type FormState = {
@@ -108,7 +108,7 @@ export default function TenantPage() {
         } else {
           clearInterval(stepInterval)
           setTimeout(() => {
-            setListings(listingsData as Listing[])
+            setListings(listingsData as unknown as Listing[])
             setViewState("results")
           }, 1000)
         }
@@ -363,11 +363,14 @@ export default function TenantPage() {
   }
 
   if (viewState === "results") {
-    const sortedListings = [...listings].sort((a, b) => {
+    const sortedListings = [...listings].sort((a: Listing, b: Listing) => {
       if (sortBy === "price") {
-        return a.price - b.price
+        return Number(a.price) - Number(b.price) || 0 // sort by price  
       }
-      return b.matchScore - a.matchScore
+      else if (sortBy === "matchScore") {
+        return Number(b.availability) - Number(a.availability) || 0 // sort by availability
+      }
+      return 0
     })
 
     return (
@@ -403,31 +406,31 @@ export default function TenantPage() {
                   }
                 }}
                 className="cursor-pointer transition-shadow hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                aria-label={`View ${listing.platform} listing in ${listing.location}`}
+                aria-label={`View ${listing.title} listing in ${listing.address}`}
               >
                 <CardContent className="p-0">
                   <div className="relative aspect-video w-full overflow-hidden rounded-t-xl">
                     <Image
-                      src={listing.photo}
-                      alt={`${listing.location} rental`}
+                      src={listing.images[0]}
+                      alt={`${listing.title} rental`}
                       fill
                       className="object-cover"
                     />
                     <div className="absolute right-2 top-2 rounded bg-background/90 px-2 py-1 text-xs font-medium">
-                      {listing.platform}
+                      {listing.unit_type}
                     </div>
                   </div>
                   <div className="p-4 space-y-2">
                     <div className="flex items-start justify-between">
                       <div>
-                        <p className="font-semibold">${listing.price.toLocaleString()}/mo</p>
-                        <p className="text-sm text-muted-foreground">{listing.location}</p>
+                        <p className="font-semibold">${listing.price}/mo</p>
+                          <p className="text-sm text-muted-foreground">{listing.address}</p>
                       </div>
                       <div className="rounded bg-primary/10 px-2 py-1 text-xs font-medium">
-                        {listing.matchScore}% match
+                        {listing.availability}
                       </div>
                     </div>
-                    <p className="text-sm">{listing.whyItFits}</p>
+                    <p className="text-sm">{listing.summary}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -462,30 +465,30 @@ export default function TenantPage() {
             <CardContent className="p-0">
               <div className="relative aspect-video w-full overflow-hidden rounded-t-xl">
                 <Image
-                  src={selectedListing.photo}
-                  alt={`${selectedListing.location} rental`}
+                  src={selectedListing.images[0]}
+                  alt={`${selectedListing.title} rental`}
                   fill
                   className="object-cover"
                 />
                 <div className="absolute right-2 top-2 rounded bg-background/90 px-2 py-1 text-xs font-medium">
-                  {selectedListing.platform}
+                  {selectedListing.unit_type}
                 </div>
               </div>
               <div className="p-6 space-y-4">
                 <div className="flex items-start justify-between">
                   <div>
                     <p className="text-2xl font-semibold">${selectedListing.price.toLocaleString()}/mo</p>
-                    <p className="text-muted-foreground">{selectedListing.location}</p>
+                    <p className="text-muted-foreground">{selectedListing.address}</p>
                   </div>
                   <div className="rounded bg-primary/10 px-3 py-1 text-sm font-medium">
-                    {selectedListing.matchScore}% match
+                    {selectedListing.availability}
                   </div>
                 </div>
 
                 <div className="rounded-md border p-4">
                   <p className="text-sm font-medium mb-2">Why this fits you:</p>
                   <p className="text-sm">
-                    This is ranked #1 because it is ${selectedListing.price.toLocaleString()} which is within your budget, 
+                    This is ranked #1 because it is ${selectedListing.price} which is within your budget, 
                     10 minutes from your preferred neighborhood, and allows cats.
                   </p>
                 </div>
@@ -501,7 +504,7 @@ export default function TenantPage() {
                     rel="noopener noreferrer"
                   >
                     <Crown className="mr-2 h-4 w-4" />
-                    Join Premium to View Listing on {selectedListing.platform}
+                    Join Premium to View Listing on {new URL(selectedListing.listing_link).hostname}
                   </a>
                 </Button>
               </div>

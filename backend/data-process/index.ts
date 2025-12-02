@@ -83,6 +83,17 @@ const parseAmenities = (raw?: string) => {
     .filter((entry) => entry.length > 0);
 };
 
+const parseImages = (raw?: string) => {
+  const normalized = raw?.trim() ?? "";
+  if (!normalized || normalized.toLowerCase() === "n/a" || normalized === "--") {
+    return [];
+  }
+  return normalized
+    .split(",")
+    .map((entry) => entry.trim())
+    .filter((entry) => entry.length > 0);
+};
+
 const toRequiredString = (value: string, fallback: string) => {
   const trimmed = value?.trim() ?? "";
   return trimmed || fallback;
@@ -103,7 +114,7 @@ const mapCsvRowToListing = (row: CsvRow): Listing => ({
   listing_link: toRequiredString(row.listing_link ?? "", "https://example.com"),
   summary: optionalField(row.summary),
   amenities: parseAmenities(row.amenities),
-  images: [],
+  images: parseImages(row.images),
   notes_for_livva: optionalField(row.notes_for_livva),
 });
 
