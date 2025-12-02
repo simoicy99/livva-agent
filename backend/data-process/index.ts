@@ -16,7 +16,7 @@ if (!connectionString) {
 const pool = new Pool({ connectionString });
 const adapter = new PrismaPg(pool);
 const prisma = new PrismaClient({ adapter });
-const csvFileName = "apartments-room-data.csv";
+const csvFileName = "zillow-room-data.csv";
 const csvFilePath = join(dirname(fileURLToPath(import.meta.url)), "data", csvFileName);
 const csvSplitRegex = /,(?=(?:[^"]*"[^"]*")*[^"]*$)/;
 
