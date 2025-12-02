@@ -16,9 +16,17 @@ if (!connectionString) {
 const pool = new Pool({ connectionString });
 const adapter = new PrismaPg(pool);
 const prisma = new PrismaClient({ adapter });
-const csvFileName = "zillow-room-data.csv";
-const csvFilePath = join(dirname(fileURLToPath(import.meta.url)), "data", csvFileName);
+const dataDir = join(dirname(fileURLToPath(import.meta.url)), "data");
 const csvSplitRegex = /,(?=(?:[^"]*"[^"]*")*[^"]*$)/;
+
+// Configure which CSV files to process
+const CSV_FILES = [
+  "zillow-room-data.csv",
+  "apartments-room-data.csv",
+  // Add more CSV files here as needed:
+  // "redfin-room-data.csv"
+  'roomies.csv',
+];
 
 type CsvRow = Record<string, string>;
 
@@ -94,6 +102,21 @@ const parseImages = (raw?: string) => {
     .filter((entry) => entry.length > 0);
 };
 
+// Handle both 'images' (array) and 'image_url' (single URL) columns
+const parseImagesFromRow = (row: CsvRow): string[] => {
+  // First try 'images' column (comma-separated)
+  if (row.images) {
+    const parsed = parseImages(row.images);
+    if (parsed.length > 0) return parsed;
+  }
+  // Fall back to 'image_url' column (single URL)
+  if (row.image_url) {
+    const url = optionalField(row.image_url);
+    if (url) return [url];
+  }
+  return [];
+};
+
 const toRequiredString = (value: string, fallback: string) => {
   const trimmed = value?.trim() ?? "";
   return trimmed || fallback;
@@ -114,25 +137,88 @@ const mapCsvRowToListing = (row: CsvRow): Listing => ({
   listing_link: toRequiredString(row.listing_link ?? "", "https://example.com"),
   summary: optionalField(row.summary),
   amenities: parseAmenities(row.amenities),
-  images: parseImages(row.images),
+  images: parseImagesFromRow(row),
   notes_for_livva: optionalField(row.notes_for_livva),
 });
 
+// Upsert a single listing (update if exists, create if not)
+const upsertListing = async (listing: Listing) => {
+  const existing = await prisma.listing.findFirst({
+    where: { listing_link: listing.listing_link },
+  });
+
+  if (existing) {
+    await prisma.listing.update({
+      where: { id: existing.id },
+      data: listing,
+    });
+    return { action: "updated", id: existing.id };
+  } else {
+    const created = await prisma.listing.create({ data: listing });
+    return { action: "created", id: created.id };
+  }
+};
+
+// Process a single CSV file and upsert all listings
+const processCsvFile = async (fileName: string) => {
+  const csvFilePath = join(dataDir, fileName);
+  
+  try {
+    const fileContents = await readFile(csvFilePath, "utf8");
+    const rows = parseCsv(fileContents);
+    
+    if (!rows.length) {
+      console.warn(`⚠️  No rows found in ${fileName}, skipping.`);
+      return { processed: 0, created: 0, updated: 0 };
+    }
+
+    const listings = rows.map(mapCsvRowToListing);
+    let created = 0;
+    let updated = 0;
+
+    // Process listings sequentially to avoid overwhelming the database
+    for (const listing of listings) {
+      // Skip listings with invalid listing_link
+      if (!listing.listing_link || listing.listing_link === "https://example.com") {
+        console.warn(`⚠️  Skipping listing with invalid link: ${listing.title}`);
+        continue;
+      }
+
+      const result = await upsertListing(listing);
+      if (result.action === "created") {
+        created++;
+      } else {
+        updated++;
+      }
+    }
+
+    console.log(`✅ Processed ${fileName}: ${created} created, ${updated} updated (${listings.length} total rows)`);
+    return { processed: listings.length, created, updated };
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") {
+      console.warn(`⚠️  File not found: ${fileName}, skipping.`);
+      return { processed: 0, created: 0, updated: 0 };
+    }
+    throw error;
+  }
+};
+
+// Process all configured CSV files
 const seedListings = async () => {
-  const fileContents = await readFile(csvFilePath, "utf8");
-  const rows = parseCsv(fileContents);
-  if (!rows.length) {
-    console.warn("No rows found in CSV, nothing to seed.");
-    return;
+  console.log(`\n📊 Processing ${CSV_FILES.length} CSV file(s)...\n`);
+  
+  let totalCreated = 0;
+  let totalUpdated = 0;
+  let totalProcessed = 0;
+
+  for (const fileName of CSV_FILES) {
+    const result = await processCsvFile(fileName);
+    totalCreated += result.created;
+    totalUpdated += result.updated;
+    totalProcessed += result.processed;
   }
 
-  const listings = rows.map(mapCsvRowToListing);
-
-  await prisma.listing.deleteMany();
-  await Promise.all(listings.map((listing) => 
-    prisma.listing.create({ data: listing })
-  ));
-  console.log(`Seeded ${listings.length} listing(s) from ${csvFileName}.`);
+  console.log(`\n📈 Summary: ${totalCreated} created, ${totalUpdated} updated (${totalProcessed} total rows processed)\n`);
 };
 
 const displayListings = async () => {
@@ -180,6 +266,9 @@ const main = async () => {
   try {
     await seedListings();
     await displayListings();
+  } catch (error) {
+    console.error("❌ Processing failed:", error);
+    throw error;
   } finally {
     await prisma.$disconnect();
   }
