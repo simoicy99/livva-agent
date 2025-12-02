@@ -3,6 +3,47 @@
 import Image from "next/image"
 import { Listing } from "@/generated/prisma/client"
 
+const isDevelopment = process.env.NODE_ENV === "development"
+
+function getListingImage(listing: Listing): string {
+  const fallbackImage = "https://placekeanu.com/500"
+  
+  if (!listing.images || !Array.isArray(listing.images) || listing.images.length === 0) {
+    if (isDevelopment) {
+      console.warn(`[DEV] Listing ${listing.id} has no images, using fallback`, {
+        listingId: listing.id,
+        title: listing.title,
+        address: listing.address,
+        images: listing.images,
+      })
+    }
+    return fallbackImage
+  }
+
+  const firstImage = listing.images[0]
+  if (!firstImage || typeof firstImage !== "string") {
+    if (isDevelopment) {
+      console.warn(`[DEV] Listing ${listing.id} has invalid first image`, {
+        listingId: listing.id,
+        title: listing.title,
+        firstImage,
+        images: listing.images,
+      })
+    }
+    return fallbackImage
+  }
+
+  if (isDevelopment) {
+    console.debug(`[DEV] Using image for listing ${listing.id}:`, {
+      listingId: listing.id,
+      imageUrl: firstImage,
+      totalImages: listing.images.length,
+    })
+  }
+
+  return firstImage
+}
+
 interface RoomListingsProps {
   listings: Listing[]
 }
@@ -27,7 +68,7 @@ export function RoomListings({ listings }: RoomListingsProps) {
         >
           <div className="relative aspect-video w-full overflow-hidden rounded-t-lg">
             <Image
-              src={listing.images[0]}
+              src={getListingImage(listing)}
               alt={listing.title}
               fill
               className="object-cover"
@@ -39,7 +80,7 @@ export function RoomListings({ listings }: RoomListingsProps) {
 
           <div className="flex flex-1 flex-col p-4">
             <div className="mb-2">
-              <p className="text-lg font-semibold">${listing.price.toLocaleString()}/mo</p>
+              <p className="text-lg font-semibold"> {listing.price.toLocaleString()}/mo</p>
                 <p className="text-sm text-muted-foreground">{listing.address}</p>
             </div>
 

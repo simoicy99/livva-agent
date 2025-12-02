@@ -4,6 +4,8 @@ import { Listing, Prisma } from "@/generated/prisma/client"
 import { prisma } from "@/lib/prisma"
 import { z } from "zod"
 
+const isDevelopment = process.env.NODE_ENV === "development"
+
 interface SearchResult {
   success: boolean
   data?: Listing[]
@@ -29,21 +31,12 @@ export interface SearchFilters {
 }
 
 interface NormalizedSearchFilters {
-  minPrice: number
-  maxPrice: number
-  city: string
-  keyword: string
-  type: NonNullable<SearchFilters["type"]>
-  sortBy: NonNullable<SearchFilters["sortBy"]>
-}
-
-const DEFAULT_FILTERS: NormalizedSearchFilters = {
-  minPrice: 0,
-  maxPrice: 5000,
-  city: "San Francisco",
-  keyword: "",
-  type: "all",
-  sortBy: "price-asc",
+  minPrice?: number
+  maxPrice?: number
+  city?: string
+  keyword?: string
+  type?: SearchFilters["type"]
+  sortBy: "price-asc" | "price-desc" | "newest"
 }
 
 const UNIT_TYPE_MAP: Record<
@@ -80,20 +73,70 @@ export async function searchRoomListings(
   filters: SearchFilters = {}
 ): Promise<SearchResult> {
   try {
+    if (isDevelopment) {
+      console.log("[DEV] searchRoomListings called with filters:", filters)
+    }
+
     const parsedFilters = searchFiltersSchema.partial().parse(filters ?? {})
     const normalizedFilters = normalizeFilters(parsedFilters)
 
+    if (isDevelopment) {
+      console.log("[DEV] Normalized filters:", normalizedFilters)
+    }
+
+    const whereClause = buildWhereClause(normalizedFilters)
+    const orderClause = buildOrderClause(normalizedFilters.sortBy)
+
+    if (isDevelopment) {
+      console.log("[DEV] Prisma query:", {
+        where: whereClause,
+        orderBy: orderClause,
+      })
+    }
+
     const listings = (await prisma.listing.findMany({
-      where: buildWhereClause(normalizedFilters),
-      orderBy: buildOrderClause(normalizedFilters.sortBy),
+      where: whereClause,
+      orderBy: orderClause,
       select: listingSelect,
-      take: 50,
     })) as Listing[]
 
-    const filteredListings = listings
-      .filter((listing) => isWithinPriceRange(listing, normalizedFilters))
-      .sort((a, b) => sortListings(a, b, normalizedFilters.sortBy))
-      .slice(0, 10)
+    if (isDevelopment) {
+      console.log("[DEV] Found listings from database:", {
+        count: listings.length,
+        listings: listings.map((l) => ({
+          id: l.id,
+          title: l.title,
+          address: l.address,
+          price: l.price,
+          hasImages: Array.isArray(l.images) && l.images.length > 0,
+          imageCount: Array.isArray(l.images) ? l.images.length : 0,
+          images: l.images,
+        })),
+      })
+    }
+
+    // Apply price filtering only if explicitly provided
+    let filteredListings = listings
+    if (normalizedFilters.minPrice !== undefined || normalizedFilters.maxPrice !== undefined) {
+      filteredListings = listings.filter((listing) =>
+        isWithinPriceRange(listing, normalizedFilters)
+      )
+    }
+
+    // Sort listings
+    filteredListings.sort((a, b) => sortListings(a, b, normalizedFilters.sortBy))
+
+    if (isDevelopment) {
+      console.log("[DEV] Filtered and sorted listings:", {
+        count: filteredListings.length,
+        listings: filteredListings.map((l) => ({
+          id: l.id,
+          title: l.title,
+          price: l.price,
+          hasImages: Array.isArray(l.images) && l.images.length > 0,
+        })),
+      })
+    }
 
     return {
       success: true,
@@ -101,6 +144,13 @@ export async function searchRoomListings(
     }
   } catch (error) {
     console.error("Error searching room listings:", error)
+    if (isDevelopment) {
+      console.error("[DEV] Full error details:", {
+        error,
+        stack: error instanceof Error ? error.stack : undefined,
+        filters,
+      })
+    }
     return {
       success: false,
       error: "Failed to search room listings. Please try again later.",
@@ -111,39 +161,29 @@ export async function searchRoomListings(
 function normalizeFilters(
   filters: SearchFilters
 ): NormalizedSearchFilters {
-  const minPrice = filters.minPrice ?? DEFAULT_FILTERS.minPrice
-  const maxPrice = filters.maxPrice ?? DEFAULT_FILTERS.maxPrice
-
-  if (minPrice > maxPrice) {
-    return {
-      ...DEFAULT_FILTERS,
-      ...filters,
-      minPrice: maxPrice,
-      maxPrice: minPrice,
-      city: formatString(filters.city, DEFAULT_FILTERS.city),
-      keyword: formatString(filters.keyword, DEFAULT_FILTERS.keyword),
-      type: filters.type ?? DEFAULT_FILTERS.type,
-      sortBy: filters.sortBy ?? DEFAULT_FILTERS.sortBy,
-    }
+  // Only use provided filters, no defaults
+  const normalized: NormalizedSearchFilters = {
+    sortBy: filters.sortBy ?? "price-asc",
   }
 
-  return {
-    minPrice,
-    maxPrice,
-    city: formatString(filters.city, DEFAULT_FILTERS.city),
-    keyword: formatString(filters.keyword, DEFAULT_FILTERS.keyword),
-    type: filters.type ?? DEFAULT_FILTERS.type,
-    sortBy: filters.sortBy ?? DEFAULT_FILTERS.sortBy,
+  // Only set if explicitly provided
+  if (filters.minPrice !== undefined) {
+    normalized.minPrice = filters.minPrice
   }
-}
-
-function formatString(value: string | undefined, fallback: string) {
-  if (!value) {
-    return fallback
+  if (filters.maxPrice !== undefined) {
+    normalized.maxPrice = filters.maxPrice
+  }
+  if (filters.city && filters.city.trim().length > 0) {
+    normalized.city = filters.city.trim()
+  }
+  if (filters.keyword && filters.keyword.trim().length > 0) {
+    normalized.keyword = filters.keyword.trim()
+  }
+  if (filters.type && filters.type !== "all") {
+    normalized.type = filters.type
   }
 
-  const trimmed = value.trim()
-  return trimmed.length > 0 ? trimmed : fallback
+  return normalized
 }
 
 function buildWhereClause(
@@ -151,13 +191,14 @@ function buildWhereClause(
 ): Prisma.ListingWhereInput {
   const conditions: Prisma.ListingWhereInput[] = []
 
+  // Only add conditions if filters are explicitly provided
   if (filters.city) {
     conditions.push({
       address: { contains: filters.city, mode: "insensitive" },
     })
   }
 
-  if (filters.type !== "all") {
+  if (filters.type && filters.type !== "all") {
     conditions.push({
       unit_type: { equals: UNIT_TYPE_MAP[filters.type], mode: "insensitive" },
     })
@@ -173,11 +214,12 @@ function buildWhereClause(
     })
   }
 
+  // Return empty object if no filters - this will return all listings
   return conditions.length > 0 ? { AND: conditions } : {}
 }
 
 function buildOrderClause(
-  sortBy: NormalizedSearchFilters["sortBy"]
+  sortBy: "price-asc" | "price-desc" | "newest"
 ): Prisma.ListingOrderByWithRelationInput {
   if (sortBy === "newest") {
     return { created_at: "desc" }
@@ -191,7 +233,9 @@ function isWithinPriceRange(
   filters: NormalizedSearchFilters
 ) {
   const priceValue = parsePrice(listing.price)
-  return priceValue >= filters.minPrice && priceValue <= filters.maxPrice
+  const minPrice = filters.minPrice ?? 0
+  const maxPrice = filters.maxPrice ?? Number.MAX_SAFE_INTEGER
+  return priceValue >= minPrice && priceValue <= maxPrice
 }
 
 function parsePrice(price: Listing["price"]) {

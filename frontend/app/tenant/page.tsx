@@ -18,7 +18,56 @@ import {
 } from "@/components/ui/select"
 import { Search, Sparkles, CheckCircle2, Zap, Crown } from "lucide-react"
 import { Listing } from "@/generated/prisma/client"
-import listingsData from "@/lib/data.json"
+import { searchRoomListings, type SearchFilters } from "@/app/actions/room-listings"
+
+const isDevelopment = process.env.NODE_ENV === "development"
+
+function formatPrice(price: Listing["price"]): string {
+  const priceValue = typeof price === "string" ? Number(price) : price
+  if (Number.isFinite(priceValue)) {
+    return priceValue.toLocaleString()
+  }
+  return String(price)
+}
+
+function getListingImage(listing: Listing): string {
+  const fallbackImage = "https://placekeanu.com/500"
+  
+  if (!listing.images || !Array.isArray(listing.images) || listing.images.length === 0) {
+    if (isDevelopment) {
+      console.warn(`[DEV] Listing ${listing.id} has no images, using fallback`, {
+        listingId: listing.id,
+        title: listing.title,
+        address: listing.address,
+        images: listing.images,
+      })
+    }
+    return fallbackImage
+  }
+
+  const firstImage = listing.images[0]
+  if (!firstImage || typeof firstImage !== "string") {
+    if (isDevelopment) {
+      console.warn(`[DEV] Listing ${listing.id} has invalid first image`, {
+        listingId: listing.id,
+        title: listing.title,
+        firstImage,
+        images: listing.images,
+      })
+    }
+    return fallbackImage
+  }
+
+  if (isDevelopment) {
+    console.debug(`[DEV] Using image for listing ${listing.id}:`, {
+      listingId: listing.id,
+      imageUrl: firstImage,
+      totalImages: listing.images.length,
+    })
+  }
+
+  return firstImage
+}
 
 type FormState = {
   location: string
@@ -52,6 +101,8 @@ export default function TenantPage() {
   const [sortBy, setSortBy] = useState<"price" | "matchScore">("matchScore")
   const [scanProgress, setScanProgress] = useState(0)
   const [currentStepIndex, setCurrentStepIndex] = useState(0)
+  const [searchError, setSearchError] = useState<string | null>(null)
+  const [isSearching, setIsSearching] = useState(false)
 
   const handleInputChange = (field: keyof FormState, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
@@ -66,11 +117,13 @@ export default function TenantPage() {
     })
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!formData.location) {
       return
     }
 
+    setSearchError(null)
+    setIsSearching(true)
     setScanProgress(0)
     setCurrentStepIndex(0)
     setThinkingSteps([])
@@ -92,11 +145,25 @@ export default function TenantPage() {
         }
         return prev + 2
       })
-    }, 40)
+    }, 1)
 
-    setTimeout(() => {
+    // Build search filters from form data
+    const searchFilters: SearchFilters = {
+      city: formData.location || undefined,
+      keyword: formData.mustHaves.length > 0 
+        ? formData.mustHaves.join(" ") 
+        : undefined,
+      minPrice: formData.maxBudget ? Number(formData.maxBudget) : undefined,
+      sortBy: "price-asc",
+    }
+
+    if (isDevelopment) {
+      console.log("[DEV] Submitting search with filters:", searchFilters)
+    }
+
+    setTimeout(async () => {
       clearInterval(scanInterval)
-      setScanProgress(1000)
+      setScanProgress(100)
       setViewState("thinking")
       
       let stepIndex = 0
@@ -107,13 +174,46 @@ export default function TenantPage() {
           stepIndex++
         } else {
           clearInterval(stepInterval)
-          setTimeout(() => {
-            setListings(listingsData as unknown as Listing[])
-            setViewState("results")
-          }, 1000)
+          
+          // Call the server action to fetch listings
+          searchRoomListings(searchFilters)
+            .then((result) => {
+              if (result.success && result.data) {
+                if (isDevelopment) {
+                  console.log("[DEV] Loaded listings from database:", {
+                    count: result.data.length,
+                    listings: result.data.map((l) => ({
+                      id: l.id,
+                      title: l.title,
+                      address: l.address,
+                      hasImages: Array.isArray(l.images) && l.images.length > 0,
+                      imageCount: Array.isArray(l.images) ? l.images.length : 0,
+                    })),
+                  })
+                }
+                setListings(result.data)
+                setViewState("results")
+              } else {
+                const errorMessage = result.error || "Failed to load listings"
+                if (isDevelopment) {
+                  console.error("[DEV] Search failed:", errorMessage)
+                }
+                setSearchError(errorMessage)
+                setViewState("results")
+              }
+            })
+            .catch((error) => {
+              console.error("Error fetching listings:", error)
+              const errorMessage = "An unexpected error occurred. Please try again."
+              setSearchError(errorMessage)
+              setViewState("results")
+            })
+            .finally(() => {
+              setIsSearching(false)
+            })
         }
-      }, 3600)
-    }, 4000)
+      }, 1)
+    }, 1)
   }
 
   const handleListingClick = (listing: Listing) => {
@@ -392,6 +492,24 @@ export default function TenantPage() {
             </Select>
           </div>
 
+          {searchError && (
+            <Card className="border-destructive bg-destructive/10">
+              <CardContent className="p-4">
+                <p className="text-sm text-destructive">{searchError}</p>
+              </CardContent>
+            </Card>
+          )}
+
+          {listings.length === 0 && !isSearching && (
+            <Card>
+              <CardContent className="p-8 text-center">
+                <p className="text-muted-foreground">
+                  No listings found. Please try adjusting your search criteria.
+                </p>
+              </CardContent>
+            </Card>
+          )}
+
           <div className="grid gap-4 md:grid-cols-2">
             {sortedListings.map((listing) => (
               <Card
@@ -411,7 +529,7 @@ export default function TenantPage() {
                 <CardContent className="p-0">
                   <div className="relative aspect-video w-full overflow-hidden rounded-t-xl">
                     <Image
-                      src={listing.images[0]}
+                      src={getListingImage(listing)}
                       alt={`${listing.title} rental`}
                       fill
                       className="object-cover"
@@ -423,7 +541,7 @@ export default function TenantPage() {
                   <div className="p-4 space-y-2">
                     <div className="flex items-start justify-between">
                       <div>
-                        <p className="font-semibold">${listing.price}/mo</p>
+                        <p className="font-semibold">${formatPrice(listing.price)}/mo</p>
                           <p className="text-sm text-muted-foreground">{listing.address}</p>
                       </div>
                       <div className="rounded bg-primary/10 px-2 py-1 text-xs font-medium">
@@ -465,7 +583,7 @@ export default function TenantPage() {
             <CardContent className="p-0">
               <div className="relative aspect-video w-full overflow-hidden rounded-t-xl">
                 <Image
-                  src={selectedListing.images[0]}
+                  src={getListingImage(selectedListing)}
                   alt={`${selectedListing.title} rental`}
                   fill
                   className="object-cover"
@@ -477,7 +595,7 @@ export default function TenantPage() {
               <div className="p-6 space-y-4">
                 <div className="flex items-start justify-between">
                   <div>
-                    <p className="text-2xl font-semibold">${selectedListing.price.toLocaleString()}/mo</p>
+                    <p className="text-2xl font-semibold">${formatPrice(selectedListing.price)}/mo</p>
                     <p className="text-muted-foreground">{selectedListing.address}</p>
                   </div>
                   <div className="rounded bg-primary/10 px-3 py-1 text-sm font-medium">
@@ -488,7 +606,7 @@ export default function TenantPage() {
                 <div className="rounded-md border p-4">
                   <p className="text-sm font-medium mb-2">Why this fits you:</p>
                   <p className="text-sm">
-                    This is ranked #1 because it is ${selectedListing.price} which is within your budget, 
+                    This is ranked #1 because it is ${formatPrice(selectedListing.price)} which is within your budget, 
                     10 minutes from your preferred neighborhood, and allows cats.
                   </p>
                 </div>
