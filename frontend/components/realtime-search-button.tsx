@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from "react"
 import { searchRoomListings, type SearchFilters } from "@/app/actions/room-listings"
-import type { Listing } from "@/lib/type"
+import { Listing } from "@/generated/prisma/client"
 import { RefreshCw } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -10,13 +10,12 @@ interface RealtimeSearchButtonProps {
   onResults: (listings: Listing[]) => void
   maxPrice?: number
   city?: string
+  keyword?: string
+  type?: "studio" | "room" | "apartment" | "all"
+  sortBy?: "price-asc" | "price-desc" | "newest"
 }
 
-export function RealtimeSearchButton({
-  onResults,
-  maxPrice = 1500,
-  city = "San Francisco",
-}: RealtimeSearchButtonProps) {
+export function RealtimeSearchButton({ onResults, maxPrice = 1500, city = "San Francisco", keyword = "", type = "all", sortBy = "price-asc" }: RealtimeSearchButtonProps) {
   const [isPending, startTransition] = useTransition()
   const [error, setError] = useState<string | null>(null)
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null)
@@ -31,7 +30,7 @@ export function RealtimeSearchButton({
         }
         const result = await searchRoomListings(filters)
         if (result.success && result.data) {
-          onResults(result.data)
+          onResults(result.data as unknown as Listing[])
           setLastUpdated(new Date())
         } else {
           setError(result.error || "Failed to fetch listings")
