@@ -12,3 +12,10 @@ data/*.pptx
 data/*.ppt
 data/*.pps
 data/*.ppsx
+
+
+.env
+/generated/prisma
+
+node_modules/
+.DS_Store

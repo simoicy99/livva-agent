@@ -1,7 +1,6 @@
 import { config } from "dotenv"
 import { join } from "path"
-import { PrismaClient, Prisma } from "@/app/generated/prisma/client"
-import type { Listing } from "@/lib/type"
+import { Listing, Prisma, PrismaClient } from "@/generated/prisma/client"
 import listingsData from "@/lib/data.json"
 
 config({ path: join(process.cwd(), ".env") })
@@ -12,19 +11,25 @@ async function main() {
   console.log("🌱 Starting database seed...")
 
   try {
-    const listings = listingsData as Listing[]
+    const listings = listingsData as unknown as Listing[]
 
     console.log(`📦 Found ${listings.length} listings to seed`)
 
-    const listingData = listings.map((listing) => ({
+    const listingData = listings.map((listing: Listing) => ({
       id: listing.id,
-      platform: listing.platform,
-      photo: listing.photo,
+      title: listing.title,
+      address: listing.address,
+      neighborhood: listing.neighborhood,
       price: listing.price,
-      location: listing.location,
-      match_score: listing.matchScore,
-      why_it_fits: listing.whyItFits,
-      metadata: Prisma.JsonNull,
+      bed_bath: listing.bed_bath,
+      sqft: listing.sqft,
+      unit_type: listing.unit_type,
+      availability: listing.availability,
+      contact_name: listing.contact_name,
+      contact_phone: listing.contact_phone,
+      listing_link: listing.listing_link,
+      images: listing.images,
+      summary: listing.summary,
     }))
 
     console.log("🔄 Clearing existing listings...")
@@ -49,13 +54,13 @@ async function main() {
     console.log(`✅ Successfully seeded ${result.count} listings`)
     console.log(`📊 Platform breakdown:`)
     
-    const platformCounts = listings.reduce((acc, listing) => {
-      acc[listing.platform] = (acc[listing.platform] || 0) + 1
+    const unitTypeCounts = listings.reduce((acc, listing) => {
+      acc[listing.unit_type] = (acc[listing.unit_type] || 0) + 1
       return acc
     }, {} as Record<string, number>)
 
-    Object.entries(platformCounts).forEach(([platform, count]) => {
-      console.log(`   ${platform}: ${count}`)
+    Object.entries(unitTypeCounts).forEach(([unitType, count]) => {
+      console.log(`   ${unitType}: ${count}`)
     })
   } catch (error) {
     console.error("❌ Error seeding database:", error)
