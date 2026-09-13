@@ -1,6 +1,12 @@
 # Livva Agent
 
-Livva Agent is a full-stack prototype pairing a FastAPI backend with a Next.js 16 front end. The frontend is driven by React 19, Tailwind 4, Clerk authentication, and Prisma for database interactions, while the backend exposes a simple FastAPI service that can be extended with new endpoints.
+**A focused rental-search prototype for Livva.**
+
+Browse rental listings by location, price, unit type, and keyword. The Next.js frontend includes Clerk authentication and Prisma-backed search; a separate FastAPI service provides the backend scaffold.
+
+**Status:** Prototype. Tenant listing search is implemented; the landlord entry point is marked “Coming Soon,” and the FastAPI root endpoint is a placeholder.
+
+[Frontend setup](#frontend-setup) · [Backend setup](#backend-setup) · [Related Livva platform](https://github.com/simoicy99/livvarentalai)
 
 ## Repository layout
 
@@ -14,12 +20,19 @@ Livva Agent is a full-stack prototype pairing a FastAPI backend with a Next.js 1
 - **Python** `3.13+`
 - **Git** (for cloning and managing the repo)
 
+## Get the code
+
+```bash
+git clone https://github.com/simoicy99/livva-agent.git
+cd livva-agent
+```
+
 ## Backend setup
 
 1. `cd backend`
 2. Create and activate a virtual environment (`python -m venv .venv && source .venv/bin/activate`)
 3. Install dependencies: `pip install -r requirements.txt` or `pip install .`
-4. Start the server: `uvicorn main:app --reload --port 8000` (or `uv run --reload main:app`)
+4. Start the server: `uvicorn main:app --reload --port 8000` (or `uv run uvicorn main:app --reload --port 8000`)
 
 The root path (`GET /`) currently returns `{"Hello": "World"}` and serves as a placeholder for future APIs.
 
@@ -40,7 +53,6 @@ The root path (`GET /`) currently returns `{"Hello": "World"}` and serves as a p
 - `pnpm build` – production build
 - `pnpm start` – serve the production build
 - `pnpm lint` – run ESLint
-- `pnpm generate:properties` – run `tsx scripts/generate-properties.ts`
 - `pnpm db:seed` – apply Prisma seed logic
 
 ## Connecting frontend ↔ backend
@@ -50,5 +62,5 @@ Both servers run independently (frontend on `:3000`, backend on `:8000` by defau
 ## Next steps
 
 - Expand the FastAPI backend with real business logic or additional routes.
-- wire the frontend to backend APIs and Clerk-authenticated flows.
+- Wire the frontend to backend APIs and Clerk-authenticated flows.
 - Add tests (Pytest for backend, Jest/Playwright for frontend) as features stabilize.
